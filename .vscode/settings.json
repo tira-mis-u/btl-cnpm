@@ -1,9 +1,0 @@
-{
-    "C_Cpp.intelliSenseEngine": "disabled",
-    "clangd.path": "clangd",
-    "clangd.arguments": [
-        "--compile-commands-dir=build",
-        "--header-insertion=never",
-        "--query-driver=C:/Qt/Tools/mingw1120_64/bin/g++*"
-    ]
-}
