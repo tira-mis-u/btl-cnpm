@@ -1,0 +1,1053 @@
+TRƯỜNG ĐẠI HỌC CÔNG NGHỆ GTVT  
+KHOA CÔNG NGHỆ THÔNG TIN
+CÔNG NGHỆ PHẦN MỀM
+PHẦN MỀM QUẢN LÝ MƯỢN TRẢ SÁCH
+Giảng viên hướng dẫn:  Nguyễn Đức Anh
+Họ và tên sinh viên:     Nguyễn Phùng Ngọc Lương 
+Phạm Tiến Thành
+Trần Thu Ngọc Phụng
+Nguyễn Vũ Kiên
+Đàm Đình Hưng
+Lớp:  73DCTT23
+Hà Nội – 2024
+Mục Lục
+LỜI MỞ ĐẦU4
+Phần 1: Kế hoạch và tiến độ dự án6
+1. Bao gồm biểu đồ WBS, sơ đồ Gantt và bảng quản lý rủi ro của dự án.6
+1.1.Biểu đồ WBS:6
+1.2.Sơ đồ Gantt6
+1.3.Bảng quản lý rủi ro dự án7
+2.Mô hình phát triển phần mềm.7
+2.1.Mô hình phát triển phần mềm quản lý mượn trả sách7
+2.2.Lý do lựa chọn phần mềm quản lý mượn trả sách7
+Phần 2: Khảo sát và đặc tả yêu cầu người dùng8
+1.Giới thiệu đơn vị khảo sát:8
+2.Khảo sát thư viện8
+2.1. Các thể loại sách:8
+2.2. Phương thức tìm kiếm sách , mượn trả sách:8
+2.3. Tổ chức quản lý hoạt đông:10
+2.4. Các dịch vụ:10
+2.5. Khảo sát:10
+3.Các chức năng và phi chức năng:12
+3.1. Các chức năng:12
+3.2. Các phi chức năng:13
+4.Biểu đồ UseCase và đặc tả14
+4.1. UseCase Tổng Quát:14
+4.2. UseCase:15
+Phần 3: Phân tích hệ thống28
+1. Biểu đồ trình tự:28
+1.1. Chức năng đăng nhập28
+1.2. Chức năng thêm sách28
+1.3. Chức năng xóa sách29
+1.4 Chức năng sửa sách29
+1.5. Chức năng tìm kiếm sách30
+1.6. Chức năng thêm bạn đọc30
+1.7. Chức năng xóa bạn đọc31
+1.8. Chức năng sửa bạn đọc32
+1.9. Chức năng tìm kiếm bạn đọc33
+1.10. Chức năng thống kế bạn đọc34
+1.11. Chức năng thêm phiếu mượn35
+1.12. Chức năng xóa phiếu mượn36
+1.13. Chức năng sửa thông tin phiếu mượn37
+1.14. Chức năng tìm kiếm phiếu mượn38
+2. Biểu đồ hành động:39
+2.1. Chức năng đăng nhập39
+2.2. Chức năng thêm sách40
+2.3. Chức năng xóa sách41
+2.4. Chức năng sửa thông tin sách42
+2.5. Chức năng tìm kiếm sách43
+2.6. Chức năng thêm bạn đọc44
+2.7. Chức năng xóa bạn đọc45
+2.8. Chức năng sửa thông tin bạn đọc46
+2.9. Chức năng tìm kiếm bạn đọc47
+2.10. Chức năng thống kê bạn đọc48
+2.11. Chức năng thêm phiếu mượn49
+2.12. Chức năng xóa phiếu mượn50
+2.13. Chức năng sửa thông tin phiếu mượn51
+2.14. Chức năng tìm kiếm phiếu mượn52
+2.15. Chức năng thống kê phiếu mượn53
+3. Biểu đồ lớp:53
+4. Biểu đồ luồng dữ liệu:54
+Phần 4: Kiến trúc tổng quan và công nghệ phát triển54
+1. Kiến trúc tổng quan của phần mềm54
+2. Các công nghệ được sử dụng trong việc phát triển và triển khai phần mềm55
+Phần 5: Cài đặt và mã nguồn56
+1. Link liên kết github56
+Phần 6: Kiểm thử phần mềm56
+1. Kế hoạch kiểm thử56
+1.1. Kiểm thử chức năng56
+1.2. Kiểm thử phi chức năng61
+1.3. Kiểm thử cấu trúc/ kiến trúc phần mềm61
+Kết Luận62
+Lời Kết63
+LỜI MỞ ĐẦU
+Cùng với tốc độ phát triển và ứng dụng rộng rãi của công nghệ thông tin, việc tin học hoá trong quản lý càng trở nên cần thiết.    Trong những năm gần đây, cùng với việc phát triển trong nhiều lĩnh vực, thư viện sách là một trong những nhu cầu cần thiết yếu trong công việc và cuộc sống của mọi người. Số lượng sách ngày càng nhiều, bên cạnh đó nhu cầu xem và mượn sách cũng ngày càng gia tăng. Tại  các thư viện lớn như Thư viện Quốc Gia, Thư viện Hà Nội…vấn đề mượn và đọc sách của độc giả  ngày càng trở nên khó khăn hơn cho cả độc giả lẫn thủ thư mà nguyên nhân chủ yếu là do việc tìm kiếm khó khăn, không nắm được tình trạng sách, khó nhắc đòi sách quá hạn, quản lý bản gốc ra vào kho khó khăn, không có khả năng liên kết giữa nhiều thư viện, làm hồ sơ sách phức tạp…    Tuy nhiên ứng dụng Công nghệ thông tin cho thư viện ở nước ta còn nằm trong quy mô hạn hẹp. Trong bối cảnh đó, việc xây dựng chương trình quản lý thư viện điện thử là vô cùng cần thiết nhằm nâng cao tri thức cũng như giảm thiểu những khó khăn của thủ thư và độc giả.    Quản lý thư viện điện tử có nhiệm vụ quản lý, phục vụ công tác tra cứu, nghiên cứu của độc giả. Hệ thống quản lý thư viện phải nắm giữ được số lượng sách trong thư viện, phân loại sách theo từng chương mục cụ thể để có thể dễ dàng, thuận tiện cho việc truy tìm. Quản lý mượn-trả sách, quản lý bạn đọc, quản lý được nội dung điện tử để có thể lấy nội dung trực tiếp. Ngoài ra hệ thống cũng cần phải biết được tình trạng sách hiện tại (sách đang ở đâu,như thế nào…) ,phải được cập nhật thông tin mỗi khi bổ sung các tư liệu mới hoặc thanh lý các tư liệu không còn giá trị. Đối với việc tra cứu, hệ thống phải đưa ra biên mục các sách có trong thư viện, sao cho  độc giả dễ dàng tìm được những tư liệu cần thiết. Quản trị tự động khả năng tra sách từ xa, liên kết các thư viện cả tra cứu và mượn sách.
+Phần 2: Khảo sát và đặc tả yêu cầu người dùng
+Giới thiệu đơn vị khảo sát:
+Đơn vị khảo sát: Tiệm sách xưa
+Địa chỉ: Số 600 Đường Láng, Láng Hạ, Đống Đa, Hà Nội.
+Quy mô: Nhà sách có diện tích 30m2, hiện tại đang cho thuê các đầu sách cũ cho những người xung quanh. 
+Khảo sát thư viện 
+2.1. Các thể loại sách:
+Các đầu sách ở thư viện hiện có là: Sách kinh tế, sách ngành công trình, sách ngành cơ khí, sách tiếng anh, sách khoa học cơ bản, sách khoa học xã hội, sách ngoại văn, sách luật, sách điện-điện tử, sách nghề
+2.2. Phương thức tìm kiếm sách , mượn trả sách:
+- Tìm kiếm sách:
+-Truy cập link: http://localhost/quanlythuvien/Lord.php
+-Nhập tên sách hoặc mã sách và ô tìm kiếm 
+-Ấn tìm kiếm 
+-Mượn sách:
+-Sau khi tìm kiếm được quyển sách bạn muốn mượn, nếu sách hiển thị bạn có thể mượn thì đi lên tầng 3 thư viện, rồi tìm phòng thủ thư để mượn sách - ở đó thủ thư sẽ yêu cầu bạn cung cấp 1 số thông tin để mượn sách.
+2.3. Tổ chức quản lý hoạt đông:
+Quy trình mượn trả sách:
+Tìm sách: Bạn đọc có thể đến thư việc để được các cô thủ thư hỗ trợ tìm sách hoặc có thể tìm sách trên trang website thư viện của trường.
+Mượn sách: Khi mượn sách, bạn sẽ phải cung cấp 1 số thông tin liên quan như họ và tên, ngày sinh, số điện thoại, email, giới tính, địa chỉ,... cho các cô thủ thư. Nếu có thắc mắc bạn hãy lên thư viện gặp thủ thư để được hỗ trợ.
+Trả sách: Khi trả sách, bạn sẽ phải đưa trực tiếp cho các cô thủ thư để kiểm tra xem sách có bị vấn đề gì không. Nếu có thì sẽ phải bồi thường, nên hãy giữ gìn cẩn thận. Sau khi kiểm tra xong mà không có vấn đề gì thì sẽ xác nhận đã trả.
+2.4. Các dịch vụ:
+Đọc sách tại chỗ, mượn sách, mượn trả sách,….
+Các ngày hội đọc sách,….
+2.5. Khảo sát:
+Các hình thức khảo sát:
+Phỏng vấn 
+Quan sát hiện trường
+Nghiên cứu tài liệu 
+Trả lời câu hỏi
+Đối tượng khảo sát: 
+Phỏng vấn thủ thư thư viện:
+Ngày phỏng vấn: 9h ngày 20/09/2025.
+Chủ nhà sách: Nguyễn Văn Hùng.
+Câu hỏi và câu trả lời: 
+
+--- Table Start ---
+STT || Câu hỏi || Câu trả lời
+1 || Tiệm sách này của chú có bao nhiêu có bao nhiêu cuốn sách |  ? || Có  | 1000 cuốn sách | .
+2 || L | àm sao chú biết cuốn sách nào còn và cuốn sách khách mượn rồi |  ? || Chú ghi lại vào cuốn sổ tay, ai mượn gì? Mượn ngày nào? Hẹn n | gày nào trả?
+3 || Chú sắp xếp các cuốn sách trên kệ như thế nào cho dễ tìm |  ? || Chú chia theo khu sách theo thể loại: tiểu thuyết, văn học, sách kĩ năng | …
+4 || Cùng một cuốn sách nhưng có nhiều phiên bản giống nhau, thì chú phân biệt nh | ư |  thế nào |  ? || Chú đánh số ở gáy cuốn sách để phân biệt.
+5 || Khách hàng của chú thường là những ai | ? || Khách hàng của chú thường là những người dân xung quanh, người quen 
+6 || Nếu mà khách |  mới đến mượn sách lần đầu thì chú xử lý như nào? || Chú sẽ thu tiền cọc, kiểm tra và ghi lại thông tin người mượn.  | Nhưng việc quản lý dễ gây nhầm lẫn.
+7 || Quyền lợi của khách quen và khách lần đầu mượn có khác nhau không chú? || Khách  | lần đầu mượn sẽ chỉ mượn 1 cuốn và đưa tiền cọc, còn khách quen thì có thể mượn 2-3 cuốn và ít tiền cọc hơn.
+8 || Khi họ mượn sách thì chú sẽ làm gì | ? || Chú ghi thông tin khách mượn và thông tin sách, ngày mượn, ngày trả.
+9 || Chú thường hẹn trả sách trong bao lâu? || Mặc định là  | 7 |  ng | ày, có thể linh hoạt thời gian.
+10 || Khi khách trả sách chú sẽ làm gì ? || Chú sẽ kiểm tra thật kĩ xem sách có hư hại gì không mới gạch tên khỏi sổ
+11 || Nếu còn 1 cuốn sách mà có nhiều người mượn thì chú sẽ xử lý như nào? || Ai tới trước sẽ được mượn trước | .
+12 || Chi phí mượn sách tính như thế nào ạ? || Nếu trả đúng hạn thì là 2000 đồng/1 ngày, còn quá hạn thì là 10000 đồng/1 ngày kể từ ngày quá hạn.
+13 || Khi khách trả sách đúng hạn thì  | chú sẽ làm gì với tiền cọc? || Chú sẽ kiểm tra sách và hoàn trả lại 100% tiền cọc cho họ.
+14 || Cháu thấy chú quản lý bằng sổ ghi tay có nhiều rủi ro và bất tiện, vậy chú muốn đơn giản hóa việc quản lý như thế nào? || Chú mong muốn có một phần mềm quản lý trên máy tính để đơn giản hóa công việc.
+15 || Chú mong muốn giao diện của phần mềm quản lý như thế nào? || Chú mong muốn phần mềm dễ nhìn, dễ thao tác, các nút bấm to rõ ràng.
+16 || Chú mong muốn các cuốn sách của mình được quản lý như thế nào? || Chú mong muốn mình có thể dễ dàng tìm kiếm trên phần mềm để cho mượn thay vì phải  | khó khăn trong việc tìm kiếm sách thủ công.
+17 || Chú mong muốn phần mềm sẽ quản lý những công việc gì? || Chú mong muốn sẽ quản lý được các quyển sách, các thông tin về người mượn, ngày mượn, ngày trả và giá mượn. Còn muốn mượn sách | , trả sách và các thủ tục khác |  thì để phải đến trực tiếp.
+--- Table End ---
+
+STT
+Câu hỏi
+Câu trả lời
+1
+Tiệm sách này của chú có bao nhiêu có bao nhiêu cuốn sách ?
+Có 1000 cuốn sách.
+2
+Làm sao chú biết cuốn sách nào còn và cuốn sách khách mượn rồi ?
+Chú ghi lại vào cuốn sổ tay, ai mượn gì? Mượn ngày nào? Hẹn ngày nào trả?
+3
+Chú sắp xếp các cuốn sách trên kệ như thế nào cho dễ tìm ?
+Chú chia theo khu sách theo thể loại: tiểu thuyết, văn học, sách kĩ năng…
+4
+Cùng một cuốn sách nhưng có nhiều phiên bản giống nhau, thì chú phân biệt như thế nào ?
+Chú đánh số ở gáy cuốn sách để phân biệt.
+5
+Khách hàng của chú thường là những ai?
+Khách hàng của chú thường là những người dân xung quanh, người quen 
+6
+Nếu mà khách mới đến mượn sách lần đầu thì chú xử lý như nào?
+Chú sẽ thu tiền cọc, kiểm tra và ghi lại thông tin người mượn. Nhưng việc quản lý dễ gây nhầm lẫn.
+7
+Quyền lợi của khách quen và khách lần đầu mượn có khác nhau không chú?
+Khách lần đầu mượn sẽ chỉ mượn 1 cuốn và đưa tiền cọc, còn khách quen thì có thể mượn 2-3 cuốn và ít tiền cọc hơn.
+8
+Khi họ mượn sách thì chú sẽ làm gì?
+Chú ghi thông tin khách mượn và thông tin sách, ngày mượn, ngày trả.
+9
+Chú thường hẹn trả sách trong bao lâu?
+Mặc định là 7 ngày, có thể linh hoạt thời gian.
+10
+Khi khách trả sách chú sẽ làm gì ?
+Chú sẽ kiểm tra thật kĩ xem sách có hư hại gì không mới gạch tên khỏi sổ
+11
+Nếu còn 1 cuốn sách mà có nhiều người mượn thì chú sẽ xử lý như nào?
+Ai tới trước sẽ được mượn trước.
+12
+Chi phí mượn sách tính như thế nào ạ?
+Nếu trả đúng hạn thì là 2000 đồng/1 ngày, còn quá hạn thì là 10000 đồng/1 ngày kể từ ngày quá hạn.
+13
+Khi khách trả sách đúng hạn thì chú sẽ làm gì với tiền cọc?
+Chú sẽ kiểm tra sách và hoàn trả lại 100% tiền cọc cho họ.
+14
+Cháu thấy chú quản lý bằng sổ ghi tay có nhiều rủi ro và bất tiện, vậy chú muốn đơn giản hóa việc quản lý như thế nào?
+Chú mong muốn có một phần mềm quản lý trên máy tính để đơn giản hóa công việc.
+15
+Chú mong muốn giao diện của phần mềm quản lý như thế nào?
+Chú mong muốn phần mềm dễ nhìn, dễ thao tác, các nút bấm to rõ ràng.
+16
+Chú mong muốn các cuốn sách của mình được quản lý như thế nào?
+Chú mong muốn mình có thể dễ dàng tìm kiếm trên phần mềm để cho mượn thay vì phải khó khăn trong việc tìm kiếm sách thủ công.
+17
+Chú mong muốn phần mềm sẽ quản lý những công việc gì?
+Chú mong muốn sẽ quản lý được các quyển sách, các thông tin về người mượn, ngày mượn, ngày trả và giá mượn. Còn muốn mượn sách, trả sách và các thủ tục khác thì để phải đến trực tiếp.
+Các chức năng và phi chức năng:
+3.1. Các chức năng:
+Quản lý thông tin sách:
+Lưu trữ thông tin cơ bản của từng cuốn sách (mã sách, tên sách, tác giả, thể loại, tình trạng sách).
+Cập nhật thông tin khi thêm sách mới hoặc khi muốn sửa lại thông tin sách.
+Quản lý tài khoản người dùng:
+Lưu trữ thông tin sinh viên (mã sinh viên, tên,giới tính, mật khẩu, số điện thoại).
+Cho phép admin và người dùng chính được đổi mật khẩu. 
+Đăng ký tài khoản để mượn sách và tra cứu tình trạng, xem lại lịch sử mượn sách.
+Quản lý mượn sách:
+Cho phép mượn sách thông qua mã sách và mã sinh viên.
+Ghi nhận ngày mượn, ngày trả sách và ngày bắt buộc phải trả và tình trạng mượn của từng cuốn.
+Tự động sửa tình trạng sách khi mượn thành công.
+Quản lý trả sách:
+Xác nhận trả sách do nhân viên thực hiện.
+Ghi nhận ngày trả thực tế và cập nhật số lượng sách.
+Tra cứu sách và tình trạng mượn trả:
+Sinh viên tra cứu thông tin sách (tên sách, tác giả, tình trạng sẵn có).
+Sinh viên xem lịch sử mượn trả của mình (ngày mượn, ngày trả, trạng thái).
+Giao diện người dùng:
+Cung cấp giao diện trực quan với các menu chính (Trang chủ, Tra cứu sách, Mượn sách, Trả sách, Lịch sử mượn trả).
+Các ô nhập liệu và nút chức năng dễ thao tác.
+3.2. Các phi chức năng:
+Hiệu suất (Performance):
+Ứng dụng hoạt động nhanh chóng ngay cả khi số lượng người dùng tăng.
+Tra cứu và cập nhật thông tin phải được thực hiện trong thời gian ngắn (dưới 2 giây).
+Độ tin cậy (Reliability):
+Đảm bảo lưu trữ dữ liệu an toàn và không mất mát thông tin.
+Hỗ trợ sao lưu và phục hồi cơ sở dữ liệu trong trường hợp lỗi hệ thống.
+Khả năng sử dụng (Usability):
+Giao diện dễ sử dụng, phù hợp với người dùng không chuyên về công nghệ.
+Tính năng trợ giúp hoặc hướng dẫn sử dụng ngắn gọn.
+Khả năng bảo trì (Maintainability):
+Code dễ đọc và có chú thích để các thành viên dễ dàng bảo trì và mở rộng.
+Cấu trúc phần mềm hỗ trợ thêm chức năng mới một cách đơn giản.
+Tính bảo mật (Security):
+Bảo vệ thông tin sinh viên và dữ liệu sách tránh bị truy cập trái phép.
+Yêu cầu đăng nhập với mật khẩu cho các chức năng liên quan đến tài khoản.
+Khả năng tương thích (Compatibility):
+Hoạt động tốt trên các trình duyệt phổ biến như Chrome, Firefox.
+Hỗ trợ trên các hệ điều hành thông dụng (Windows, macOS, Linux).
+Khả năng mở rộng (Scalability):
+Dễ dàng nâng cấp cơ sở dữ liệu hoặc tích hợp thêm các tính năng khi thư viện phát triển.
+Khả năng triển khai (Deployability):
+Phần mềm dễ cài đặt trên các máy tính của thư viện mà không cần yêu cầu phần cứng đặc biệt.
+Hỗ trợ môi trường triển khai cục bộ hoặc trên máy chủ nội bộ.
+Biểu đồ UseCase và đặc tả
+4.1. UseCase Tổng Quát:
+4.2. UseCase:
+4.2.1. Usecase “Đăng nhập”
+* Usecase chi tiết
+Chức năng “Đăng nhập”:
+* Đặc tả: 
+
+--- Table Start ---
+Tên Usecase || Đăng Nhập
+Tác Nhân || T | hủ thư,  | B | ạn đọc
+Tiền điều kiện (đăng nhập) || T | hủ thư bạn đọc đã có tài khoản trong hệ thống và đăng nhập thành công
+Mục đích (đăng nhập) || Xác |   | thực người |   | dùng |   | Người dùng đăng nhập vào hệ thống thông qua “Tài khoản” và “Mật khẩu”
+Dòng sự kiện chính (đăng nhập) || Dòng sự kiện chính: | Người dùng muốn đăng nhập và | o |  hệ thống | Hệ thống  | hiển |  thị giao diện đăng nhập | Người dùng nhập “Tên đăng nhâp” và “ Mật khẩu” | Hệ thống kiểm tra và xác thực thông tin đăng nhập | Hiện thị giao diện chính của hệ thống | Kết thúc Usecase
+Dòng sự kiện phụ (đăng nhập) || Nếu người dùng nhập sai hoặc không nhập tên đăng nhập/ mật khẩu thì không thực hiện đăng nhập | Nếu người dùng nhập sai mật khẩu sẽ thông báo cho người dùng biết
+Hậu điều kiện (đăng nhập) || Trường hợp thành công:  | Hệ thống sẽ hiện thị giao diện quản lý chính. Người dùng có thể thực hiện các chức năng theo đúng quyền hạn của mình. | Trường hợp thất bại: |  Hệ thống sẽ đưa ra thông báo “ Tài khoản nhập sai hoặc không tồn tài” và yêu cầu đăng nhập lại.
+--- Table End ---
+
+Tên Usecase
+Đăng Nhập
+Tác Nhân
+Thủ thư, Bạn đọc
+Tiền điều kiện (đăng nhập)
+Thủ thư bạn đọc đã có tài khoản trong hệ thống và đăng nhập thành công
+Mục đích (đăng nhập)
+Xác thực người dùng 
+Người dùng đăng nhập vào hệ thống thông qua “Tài khoản” và “Mật khẩu”
+Dòng sự kiện chính (đăng nhập)
+Dòng sự kiện chính:
+Người dùng muốn đăng nhập vào hệ thống
+Hệ thống hiển thị giao diện đăng nhập
+Người dùng nhập “Tên đăng nhâp” và “ Mật khẩu”
+Hệ thống kiểm tra và xác thực thông tin đăng nhập
+Hiện thị giao diện chính của hệ thống
+Kết thúc Usecase
+Dòng sự kiện phụ (đăng nhập)
+Nếu người dùng nhập sai hoặc không nhập tên đăng nhập/ mật khẩu thì không thực hiện đăng nhập
+Nếu người dùng nhập sai mật khẩu sẽ thông báo cho người dùng biết
+Hậu điều kiện (đăng nhập)
+Trường hợp thành công: Hệ thống sẽ hiện thị giao diện quản lý chính. Người dùng có thể thực hiện các chức năng theo đúng quyền hạn của mình.
+Trường hợp thất bại: Hệ thống sẽ đưa ra thông báo “ Tài khoản nhập sai hoặc không tồn tài” và yêu cầu đăng nhập lại.
+4.2.2. Usecase “Quản lý sách”: 
+*Usecase chi tiết:
+Chức năng “Thêm sách”
+* Đặc tả:
+
+--- Table Start ---
+Tên Usecase || Thêm sách
+Tác nhân || T | hủ thư
+Tiền điều kiện(Đăng nhập) || T | hủ thư phải đăng nhập vào hệ thống bằng tài khoản của  | t | hủ thư.
+Mục đích (Thêm sách) || T | hủ thư có thể thêm sách vào hệ thống khi có sách mới
+Dòng sự kiện chính (Thêm sách) || Dòng sự kiện chính: | -       | T | hủ thư muốn thêm mới sách | -       | Chọn thêm sách | -       | Hệ thống hiển thị giao diện nhập thông tin sách | -       | Nhập thông tin sách muốn thêm mới | -       | Hệ thống hiển thị thông báo thêm mới sách thành công | -       | Kết thúc Usecase
+Dòng sự kiện phụ (Thêm sách) || Dòng sự kiện phụ: | -       | Nếu thông tin nhập trong các trường không đúng với format thì sẽ thêm mới thất bại.Thông báo yêu cầu |   | thủ thư nhập lại.
+Hậu điều kiện (Thêm sách) || Trường hợp thành công:  | Hệ thống hiển thị thông báo thêm mới sách thành công.  | Thủ th | ư |  có thể tiếp tục thực hiện các chức năng khác trong quyền hạn của mình. | Trường hợp thất bại:  | Hệ thống đưa ra thông báo  “Thông tin sách đã tồn tại” và yêu cầu nhập lại
+--- Table End ---
+
+Tên Usecase
+Thêm sách
+Tác nhân
+Thủ thư
+Tiền điều kiện(Đăng nhập)
+Thủ thư phải đăng nhập vào hệ thống bằng tài khoản của thủ thư.
+Mục đích (Thêm sách)
+Thủ thư có thể thêm sách vào hệ thống khi có sách mới
+Dòng sự kiện chính (Thêm sách)
+Dòng sự kiện chính:
+-      Thủ thư muốn thêm mới sách
+-      Chọn thêm sách
+-      Hệ thống hiển thị giao diện nhập thông tin sách
+-      Nhập thông tin sách muốn thêm mới
+-      Hệ thống hiển thị thông báo thêm mới sách thành công
+-      Kết thúc Usecase
+Dòng sự kiện phụ (Thêm sách)
+Dòng sự kiện phụ:
+-      Nếu thông tin nhập trong các trường không đúng với format thì sẽ thêm mới thất bại.Thông báo yêu cầu thủ thư nhập lại.
+Hậu điều kiện (Thêm sách)
+Trường hợp thành công: Hệ thống hiển thị thông báo thêm mới sách thành công. Thủ thư có thể tiếp tục thực hiện các chức năng khác trong quyền hạn của mình.
+Trường hợp thất bại: Hệ thống đưa ra thông báo  “Thông tin sách đã tồn tại” và yêu cầu nhập lại
+Chức năng “Xóa sách”
+* Đặc tả: 
+
+--- Table Start ---
+Tên Usecase || Xóa sách
+Tác nhân || T | hủ thư
+Tiền điều kiện(Đăng nhập) || T | hủ thư phải đăng nhập vào hệ thống bằng tài khoản của |   | thủ thư.
+Mục đích (Xóa sách) || Mục đích để  | t | hủ thư có thể xóa sách không cần nữa.
+Dòng sự kiện chính (Xóa sách) || Dòng sự kiện chính: | -      |  T | hủ thư muốn xóa sách | -       | Chọn xóa sách muốn xóa  | -       | Xác nhận yêu cầu xóa  | -       | Xóa sách | -       | Kết thúc Usecase
+Dòng sự kiện phụ (Xóa sách) || Hiện thông báo xác thực xóa hay không, chọn hủy thì sẽ quay trở lại trang sách
+Hậu điều kiện (Xóa sách) || Trường hợp thành công:  | Hệ thống hiển thị sách thủ thư có thể tiếp tục thực hiện các chức năng khác trong quyền hạn của mình.
+--- Table End ---
+
+Tên Usecase
+Xóa sách
+Tác nhân
+Thủ thư
+Tiền điều kiện(Đăng nhập)
+Thủ thư phải đăng nhập vào hệ thống bằng tài khoản của thủ thư.
+Mục đích (Xóa sách)
+Mục đích để thủ thư có thể xóa sách không cần nữa.
+Dòng sự kiện chính (Xóa sách)
+Dòng sự kiện chính:
+-      Thủ thư muốn xóa sách
+-      Chọn xóa sách muốn xóa 
+-      Xác nhận yêu cầu xóa 
+-      Xóa sách
+-      Kết thúc Usecase
+Dòng sự kiện phụ (Xóa sách)
+Hiện thông báo xác thực xóa hay không, chọn hủy thì sẽ quay trở lại trang sách
+Hậu điều kiện (Xóa sách)
+Trường hợp thành công: Hệ thống hiển thị sách thủ thư có thể tiếp tục thực hiện các chức năng khác trong quyền hạn của mình.
+Chức năng “Sửa thông tin sách”
+* Đặc tả:
+
+--- Table Start ---
+Tên Usecase || Sửa thông tin sách
+Tác nhân || T | hủ thư
+Tiền điều kiện (Đăng nhập) || T | hủ thư phải đăng nhập vào hệ thống bằng tài khoản của thủ thư.
+Mục đích (Sửa thông tin sách) || Mục đích để  | t | hủ thư có thể sửa thông tin của sách hiện có.
+Dòng sự kiện chính (Sửa thông tin sách) || Dòng sự kiện chính: | -     | T | hủ thư muốn sửa thông tin sách | -      | Chọn sách muốn sửa thông tin  | -      | Sửa thông tin sách | -     Hiển thị sách | -      | Kết thúc Usecase
+Dòng sự kiện phụ (Sửa thông tin sách) || Dòng sự kiện phụ: | -       | Nếu thông tin của các trường  | bị sai hoặc nhập thiếu thông tin cơ bảng  | thì sẽ lưu thất bại, hiển thị thông báo yêu cầu nhập lại
+Hậu điều kiện (Sửa thông tin sách) || Trường hợp thành công:  | Hệ thống hiển thị sách,thủ thư có thể tiếp tục thực hiện các chức năng khác trong quyền hạn của mình. | Trường hợp thất bại:  |   | Y | êu cầu nhập lại
+--- Table End ---
+
+Tên Usecase
+Sửa thông tin sách
+Tác nhân
+Thủ thư
+Tiền điều kiện (Đăng nhập)
+Thủ thư phải đăng nhập vào hệ thống bằng tài khoản của thủ thư.
+Mục đích (Sửa thông tin sách)
+Mục đích để thủ thư có thể sửa thông tin của sách hiện có.
+Dòng sự kiện chính (Sửa thông tin sách)
+Dòng sự kiện chính:
+-    Thủ thư muốn sửa thông tin sách
+-     Chọn sách muốn sửa thông tin 
+-     Sửa thông tin sách
+-     Hiển thị sách
+-     Kết thúc Usecase
+Dòng sự kiện phụ (Sửa thông tin sách)
+Dòng sự kiện phụ:
+-      Nếu thông tin của các trường bị sai hoặc nhập thiếu thông tin cơ bảng thì sẽ lưu thất bại, hiển thị thông báo yêu cầu nhập lại
+Hậu điều kiện (Sửa thông tin sách)
+Trường hợp thành công: Hệ thống hiển thị sách,thủ thư có thể tiếp tục thực hiện các chức năng khác trong quyền hạn của mình.
+Trường hợp thất bại:  Yêu cầu nhập lại
+Chức năng “Tìm kiếm sách”
+* Đặc tả:
+
+--- Table Start ---
+Tên Usecase || Tìm kiếm sách
+Tác nhân || T | hủ thư | , |   | b | ạn đọc
+Tiền điều kiện (Đăng nhập) || T | hủ thư bạn đọc phải đăng nhập vào hệ thống bằng tài khoản của thủ thư | , |  bạn đọc.
+Mục đích (Tìm kiếm sách) || Mục đích để thủ thư bạn đọc có thể tìm kiếm sách từ CSDL
+Dòng sự kiện chính (Tìm kiếm sách) || Dòng sự kiện chính: | -       | T | hủ thư bạn đọc muốn tìm kiếm sách | -       | Chọn chức năng tìm kiếm sách | -       | Hệ thống hiển thị giao diện tìm sách | -      | T | hủ thư bạn đọc nhập thông tin tìm kiếm  | -      | Hệ thống hiển thị danh sách sách có thông tin thỏa mãn tiêu chí tìm kiếm | -      | Kết thúc Usecase
+Hậu điều kiện (Tìm kiếm sách) || Trường hợp thành công:  | Hệ thống hiển thị sách thỏa mãn tiêu chí tìm kiếm. | Trường hợp thất bại:  | Hệ thống hiển thị thông báo “Không tìm thấy sách thỏa mãn tiêu chí tìm kiếm”
+--- Table End ---
+
+Tên Usecase
+Tìm kiếm sách
+Tác nhân
+Thủ thư, bạn đọc
+Tiền điều kiện (Đăng nhập)
+Thủ thư bạn đọc phải đăng nhập vào hệ thống bằng tài khoản của thủ thư, bạn đọc.
+Mục đích (Tìm kiếm sách)
+Mục đích để thủ thư bạn đọc có thể tìm kiếm sách từ CSDL
+Dòng sự kiện chính (Tìm kiếm sách)
+Dòng sự kiện chính:
+-      Thủ thư bạn đọc muốn tìm kiếm sách
+-      Chọn chức năng tìm kiếm sách
+-      Hệ thống hiển thị giao diện tìm sách
+-     Thủ thư bạn đọc nhập thông tin tìm kiếm 
+-     Hệ thống hiển thị danh sách sách có thông tin thỏa mãn tiêu chí tìm kiếm
+-     Kết thúc Usecase
+Hậu điều kiện (Tìm kiếm sách)
+Trường hợp thành công: Hệ thống hiển thị sách thỏa mãn tiêu chí tìm kiếm.
+Trường hợp thất bại: Hệ thống hiển thị thông báo “Không tìm thấy sách thỏa mãn tiêu chí tìm kiếm”
+4.2.3 Usecase “Quản lí bạn đọc”:
+*Usecase chi tiết: 
+Chức năng “Thêm bạn đọc”
+* Đặc tả:
+
+--- Table Start ---
+Tên Usecase || Thêm bạn đọc
+Tác nhân || T | hủ thư
+Tiền điều kiện(Đăng nhập) || T | hủ thư phải đăng nhập vào hệ thống bằng tài khoản của thủ thư.
+Mục đích (Thêm bạn đọc) || T | hủ thư có thể thêm bạn đọc vào hệ thống khi có bạn đọc mới
+Dòng sự kiện chính (Thêm bạn đọc) || Dòng sự kiện chính: | -       | T | hủ thư muốn thêm mới bạn đọc | -       | Chọn thêm bạn đọc | -       | Hệ thống hiển thị giao diện nhập thông tin bạn đọc | -       | Nhập thông tin bạn đọc muốn thêm mới | -       | Hệ thống hiển thị thông báo thêm mới bạn đọc thành công | -       | Kết thúc Usecase
+Hậu điều kiện (Thêm bạn đọc) || Trường hợp thành công:  | Hệ thống hiển thị thông báo thêm mới bạn đọc thành công. |  Th | ủ |  th | ư |  có thể tiếp tục thực hiện các chức năng khác trong quyền hạn của mình. | Trường hợp thất bại:  | Hệ thống đưa ra thông báo  “Thông tin  mã bạn đọ | c |  đã tồn tại” và yêu cầu nhập lại
+--- Table End ---
+
+Tên Usecase
+Thêm bạn đọc
+Tác nhân
+Thủ thư
+Tiền điều kiện(Đăng nhập)
+Thủ thư phải đăng nhập vào hệ thống bằng tài khoản của thủ thư.
+Mục đích (Thêm bạn đọc)
+Thủ thư có thể thêm bạn đọc vào hệ thống khi có bạn đọc mới
+Dòng sự kiện chính (Thêm bạn đọc)
+Dòng sự kiện chính:
+-      Thủ thư muốn thêm mới bạn đọc
+-      Chọn thêm bạn đọc
+-      Hệ thống hiển thị giao diện nhập thông tin bạn đọc
+-      Nhập thông tin bạn đọc muốn thêm mới
+-      Hệ thống hiển thị thông báo thêm mới bạn đọc thành công
+-      Kết thúc Usecase
+Hậu điều kiện (Thêm bạn đọc)
+Trường hợp thành công: Hệ thống hiển thị thông báo thêm mới bạn đọc thành công. Thủ thư có thể tiếp tục thực hiện các chức năng khác trong quyền hạn của mình.
+Trường hợp thất bại: Hệ thống đưa ra thông báo  “Thông tin  mã bạn đọc đã tồn tại” và yêu cầu nhập lại
+Chức năng “Xóa bạn đọc”
+* Đặc tả: 
+
+--- Table Start ---
+Tên Usecase || Xóa bạn đọc
+Tác nhân || T | hủ thư
+Tiền điều kiện(Đăng nhập) || T | hủ thư phải đăng nhập vào hệ thống bằng tài khoản của thủ thư.
+Mục đích (Xóa bạn đọc) || Mục đích để thủ thư có thể xóa bạn đọc không còn muốn trong dữ liệu hệ thống.
+Dòng sự kiện chính (Xóa bạn đọc) || Dòng sự kiện chính: | -       | T | hủ thư muốn xóa bạn đọc | -       | Chọn xóa bạn đọc muốn xóa  | -       | Xác nhận yêu cầu xóa  | -       | Hệ thống hiển thị xóa bạn đọc thành công | -       | Kết thúc Usecase
+Dòng sự kiện phụ (Xóa bạn đọc) || Hiện thông báo xác thực xóa hay không, chọn hủy thì sẽ quay trở lại trang bạn đọc
+Hậu điều kiện (Xóa bạn đọc) || Trường hợp thành công:  | Hệ thống hiển thị thủ thư, có thể tiếp tục thực hiện các chức năng khác trong quyền hạn của mình.
+--- Table End ---
+
+Tên Usecase
+Xóa bạn đọc
+Tác nhân
+Thủ thư
+Tiền điều kiện(Đăng nhập)
+Thủ thư phải đăng nhập vào hệ thống bằng tài khoản của thủ thư.
+Mục đích (Xóa bạn đọc)
+Mục đích để thủ thư có thể xóa bạn đọc không còn muốn trong dữ liệu hệ thống.
+Dòng sự kiện chính (Xóa bạn đọc)
+Dòng sự kiện chính:
+-      Thủ thư muốn xóa bạn đọc
+-      Chọn xóa bạn đọc muốn xóa 
+-      Xác nhận yêu cầu xóa 
+-      Hệ thống hiển thị xóa bạn đọc thành công
+-      Kết thúc Usecase
+Dòng sự kiện phụ (Xóa bạn đọc)
+Hiện thông báo xác thực xóa hay không, chọn hủy thì sẽ quay trở lại trang bạn đọc
+Hậu điều kiện (Xóa bạn đọc)
+Trường hợp thành công: Hệ thống hiển thị thủ thư, có thể tiếp tục thực hiện các chức năng khác trong quyền hạn của mình.
+Chức năng “Sửa thông tin bạn đọc”
+* Đặc tả:
+
+--- Table Start ---
+Tên Usecase || Sửa thông tin bạn đọc
+Tác nhân || T | hủ thư
+Tiền điều kiện (Đăng nhập) || T | hủ thư phải đăng nhập vào hệ thống bằng tài khoản của thủ thư.
+Mục đích (Sửa thông tin bạn đọc) || Mục đích để thủ thư có thể sửa thông tin của bạn đọc hiện có.
+Dòng sự kiện chính (Sửa thông tin bạn đọc) || Dòng sự kiện chính: | -       | T | hủ thư muốn sửa thông tin bạn đọc | -       | Chọn bạn đọc muốn sửa thông tin  | -       | Sửa thông tin bạn đọc | -      Hiển thị bạn đọc | -       | Kết thúc Usecase
+Dòng sự kiện phụ (Sửa thông tin bạn đọc) || Dòng sự kiện phụ: | -       | Nếu thông tin của các trường không thay đổi thì sẽ lưu thất bại, hiển thị thông báo yêu cầu nhập lại
+Hậu điều kiện (Sửa thông tin bạn đọc) || Trường hợp thành công:  | Hệ thống hiển thị thủ thư có thể tiếp tục thực hiện các chức năng khác trong quyền hạn của mình. | Trường hợp thất bại:  | Hệ thống hiển thị thông báo “Bạn đọc đã tồn tại” và yêu cầu nhập lại
+--- Table End ---
+
+Tên Usecase
+Sửa thông tin bạn đọc
+Tác nhân
+Thủ thư
+Tiền điều kiện (Đăng nhập)
+Thủ thư phải đăng nhập vào hệ thống bằng tài khoản của thủ thư.
+Mục đích (Sửa thông tin bạn đọc)
+Mục đích để thủ thư có thể sửa thông tin của bạn đọc hiện có.
+Dòng sự kiện chính (Sửa thông tin bạn đọc)
+Dòng sự kiện chính:
+-      Thủ thư muốn sửa thông tin bạn đọc
+-      Chọn bạn đọc muốn sửa thông tin 
+-      Sửa thông tin bạn đọc
+-      Hiển thị bạn đọc
+-      Kết thúc Usecase
+Dòng sự kiện phụ (Sửa thông tin bạn đọc)
+Dòng sự kiện phụ:
+-      Nếu thông tin của các trường không thay đổi thì sẽ lưu thất bại, hiển thị thông báo yêu cầu nhập lại
+Hậu điều kiện (Sửa thông tin bạn đọc)
+Trường hợp thành công: Hệ thống hiển thị thủ thư có thể tiếp tục thực hiện các chức năng khác trong quyền hạn của mình.
+Trường hợp thất bại: Hệ thống hiển thị thông báo “Bạn đọc đã tồn tại” và yêu cầu nhập lại
+Chức năng “Tìm kiếm bạn đọc”
+* Đặc tả:
+
+--- Table Start ---
+Tên Usecase || Tìm kiếm bạn đọc
+Tác nhân || Thủ thư
+Tiền điều kiện (Đăng nhập) || Thủ thư |  phải đăng nhập vào hệ thống bằng tài khoản của |   | thủ thư.
+Mục đích (Tìm kiếm bạn đọc) || Mục đích để thủ thư có thể tìm kiếm bạn đọc từ CSDL
+Dòng sự kiện chính (Tìm kiếm bạn đọc) || Dòng sự kiện chính: | -       | T | hủ thư |  muốn tìm kiếm bạn đọc | -       | Chọn chức năng tìm kiếm bạn đọc | -       | Hệ thống hiển thị giao diện tìm bạn đọc | -      Người dùng |  nhập thông tin tìm kiếm  | -      | Hệ thống hiển thị danh sách bạn đọc có thông tin thỏa mãn tiêu chí tìm kiếm | -       | Kết thúc Usecase
+Hậu điều kiện (Tìm kiếm bạn đọc) || Trường hợp thành công:  | Hệ thống hiển thị bạn đọc thỏa mãn tiêu chí tìm kiếm. | Trường hợp thất bại:  | Hệ thống |  không |  hiển thị  | thông tin 
+--- Table End ---
+
+Tên Usecase
+Tìm kiếm bạn đọc
+Tác nhân
+Thủ thư
+Tiền điều kiện (Đăng nhập)
+Thủ thư phải đăng nhập vào hệ thống bằng tài khoản của thủ thư.
+Mục đích (Tìm kiếm bạn đọc)
+Mục đích để thủ thư có thể tìm kiếm bạn đọc từ CSDL
+Dòng sự kiện chính (Tìm kiếm bạn đọc)
+Dòng sự kiện chính:
+-      Thủ thư muốn tìm kiếm bạn đọc
+-      Chọn chức năng tìm kiếm bạn đọc
+-      Hệ thống hiển thị giao diện tìm bạn đọc
+-      Người dùng nhập thông tin tìm kiếm 
+-     Hệ thống hiển thị danh sách bạn đọc có thông tin thỏa mãn tiêu chí tìm kiếm
+-      Kết thúc Usecase
+Hậu điều kiện (Tìm kiếm bạn đọc)
+Trường hợp thành công: Hệ thống hiển thị bạn đọc thỏa mãn tiêu chí tìm kiếm.
+Trường hợp thất bại: Hệ thống không hiển thị thông tin 
+Chức năng “Thống kê bạn đọc”
+*Đặc tả:
+
+--- Table Start ---
+Tên usecase || Báo cáo thống kê
+Tác nhân || T | hủ thư
+Tiền điều kiện (Đăng nhập) || Đã có tài khoản trong hệ thống và đăng nhập thành công.
+Mục đích(Thống kê bạn đọc) || Giúp thủ thư xem tổng quát về dữ liệu bạn đọc trong thư viện
+Dòng sự kiện chính (Thống kê bạn đọc) || Chọn thống kê bạn đọc | Hệ thống hiển thị thống kê bạn đọc | Chọn thông kê bạn đọc theo chức năng nếu có | Hiển thị thống kê bạn đọc theo chức năng | Kết thúc Usecase
+--- Table End ---
+
+Tên usecase
+Báo cáo thống kê
+Tác nhân
+Thủ thư
+Tiền điều kiện (Đăng nhập)
+Đã có tài khoản trong hệ thống và đăng nhập thành công.
+Mục đích(Thống kê bạn đọc)
+Giúp thủ thư xem tổng quát về dữ liệu bạn đọc trong thư viện
+Dòng sự kiện chính (Thống kê bạn đọc)
+Chọn thống kê bạn đọc
+Hệ thống hiển thị thống kê bạn đọc
+Chọn thông kê bạn đọc theo chức năng nếu có
+Hiển thị thống kê bạn đọc theo chức năng
+Kết thúc Usecase
+4.2.4. Usecase “Quản lí mượn trả sách”:
+*Usecase chi tiết: 
+Chức năng “Thêm phiếu mượn”
+* Đặc tả:
+
+--- Table Start ---
+Tên Usecase || Thêm phiếu mượn
+Tác nhân || T | hủ thư
+Tiền điều kiện(Đăng nhập) || T | hủ thư phải đăng nhập vào hệ thống bằng tài khoản của thủ thư.
+Mục đích (Thêm phiếu mượn) || T | hủ thư có thể thêm sách vào hệ thống khi có phiếu mượn mới
+Dòng sự kiện chính (Thêm phiếu mượn) || Dòng sự kiện chính: | -       | T | hủ thư muốn thêm mới phiếu mượn | -       | Chọn thêm phiếu mượn | -       | Hệ thống hiển thị giao diện nhập thông tin phiếu mượn | -       | Nhập thông tin phiếu mượn muốn thêm mới | -       | Hệ thống hiển thị thông báo thêm mới phiếu mượn thành công | -       | Kết thúc Usecase
+Dòng sự kiện phụ (Thêm phiếu mượn) || Dòng sự kiện phụ: | -       | Nếu thông tin nhập trong các trường không đúng với format thì sẽ thêm mới thất bại. |   | Thông báo yêu cầu thủ thư nhập lại.
+Hậu điều kiện (Thêm phiếu mượn) || Trường hợp thành công:  | Hệ thống hiển thị thông báo thêm mới phiếu mượn thành công.  | T | hủ thư có thể tiếp tục thực hiện các chức năng khác trong quyền hạn của mình. | Trường hợp thất bại:  | Hệ thống đưa ra thông báo  “Thông tin phiếu mượn đã tồn tại” và yêu cầu nhập lại
+--- Table End ---
+
+Tên Usecase
+Thêm phiếu mượn
+Tác nhân
+Thủ thư
+Tiền điều kiện(Đăng nhập)
+Thủ thư phải đăng nhập vào hệ thống bằng tài khoản của thủ thư.
+Mục đích (Thêm phiếu mượn)
+Thủ thư có thể thêm sách vào hệ thống khi có phiếu mượn mới
+Dòng sự kiện chính (Thêm phiếu mượn)
+Dòng sự kiện chính:
+-      Thủ thư muốn thêm mới phiếu mượn
+-      Chọn thêm phiếu mượn
+-      Hệ thống hiển thị giao diện nhập thông tin phiếu mượn
+-      Nhập thông tin phiếu mượn muốn thêm mới
+-      Hệ thống hiển thị thông báo thêm mới phiếu mượn thành công
+-      Kết thúc Usecase
+Dòng sự kiện phụ (Thêm phiếu mượn)
+Dòng sự kiện phụ:
+-      Nếu thông tin nhập trong các trường không đúng với format thì sẽ thêm mới thất bại. Thông báo yêu cầu thủ thư nhập lại.
+Hậu điều kiện (Thêm phiếu mượn)
+Trường hợp thành công: Hệ thống hiển thị thông báo thêm mới phiếu mượn thành công. Thủ thư có thể tiếp tục thực hiện các chức năng khác trong quyền hạn của mình.
+Trường hợp thất bại: Hệ thống đưa ra thông báo  “Thông tin phiếu mượn đã tồn tại” và yêu cầu nhập lại
+Chức năng “Xóa phiếu mượn”
+* Đặc tả: 
+
+--- Table Start ---
+Tên Usecase || Xóa phiếu mượn
+Tác nhân || T | hủ thư
+Tiền điều kiện(Đăng nhập) || T | hủ thư phải đăng nhập vào hệ thống bằng tài khoản của thủ thư.
+Mục đích (Xóa phiếu mượn) || Mục đích để thủ thư có thể xóa phiếu mượn không còn.
+Dòng sự kiện chính (Xóa phiếu mượn) || Dòng sự kiện chính: | -      |   | T | hủ thư muốn xóa phiếu mượn | -       | Chọn xóa phiếu mượn muốn xóa  | -       | Xác nhận yêu cầu xóa  | -       | Hệ thống hiển thị phiếu mượn | -       | Kết thúc Usecase
+Dòng sự kiện phụ (Xóa phiếu mượn) || Hiện thông báo xác thực xóa hay không, chọn hủy thì sẽ quay trở lại trang phiếu mượn
+Hậu điều kiện (Xóa phiếu mượn) || Trường hợp thành công:  | Hệ thống hiển thị phiếu mượn thủ thư có thể tiếp tục thực hiện các chức năng khác trong quyền hạn của mình.
+--- Table End ---
+
+Tên Usecase
+Xóa phiếu mượn
+Tác nhân
+Thủ thư
+Tiền điều kiện(Đăng nhập)
+Thủ thư phải đăng nhập vào hệ thống bằng tài khoản của thủ thư.
+Mục đích (Xóa phiếu mượn)
+Mục đích để thủ thư có thể xóa phiếu mượn không còn.
+Dòng sự kiện chính (Xóa phiếu mượn)
+Dòng sự kiện chính:
+-      Thủ thư muốn xóa phiếu mượn
+-      Chọn xóa phiếu mượn muốn xóa 
+-      Xác nhận yêu cầu xóa 
+-      Hệ thống hiển thị phiếu mượn
+-      Kết thúc Usecase
+Dòng sự kiện phụ (Xóa phiếu mượn)
+Hiện thông báo xác thực xóa hay không, chọn hủy thì sẽ quay trở lại trang phiếu mượn
+Hậu điều kiện (Xóa phiếu mượn)
+Trường hợp thành công: Hệ thống hiển thị phiếu mượn thủ thư có thể tiếp tục thực hiện các chức năng khác trong quyền hạn của mình.
+Chức năng “Sửa thông tin phiếu mượn”
+* Đặc tả:
+
+--- Table Start ---
+Tên Usecase || Sửa thông tin phiếu mượn
+Tác nhân || T | hủ thư
+Tiền điều kiện (Đăng nhập) || T | hủ thư phải đăng nhập vào hệ thống bằng tài khoản của |   | thủ thư.
+Mục đích (Sửa thông tin phiếu mượn) || Mục đích để thủ thư có thể sửa thông tin của phiếu mượn hiện có.
+Dòng sự kiện chính (Sửa thông tin phiếu mượn) || Dòng sự kiện chính: | -       | T | hủ thư muốn sửa thông tin phiếu mượn | -       | Chọn phiếu mượn muốn sửa thông tin  | -       | Sửa thông tin phiếu mượn | -      Hiển thị phiếu mượn | -       | Kết thúc Usecase
+Dòng sự kiện phụ (Sửa thông tin phiếu mượn) || Dòng sự kiện phụ: | -       | Nếu thông tin của các trường không thay đổi thì sẽ lưu thất bại, hiển thị thông báo yêu cầu nhập lại
+Hậu điều kiện (Sửa thông tin phiếu mượn) || Trường hợp thành công:  | Hệ thống hiển thị phiếu mượn |   | thủ thư có thể tiếp tục thực hiện các chức năng khác trong quyền hạn của mình. | Trường hợp thất bại:  | Hệ thống hiển thị thông báo “Phiếu mượn đã tồn tại” và yêu cầu nhập lại
+--- Table End ---
+
+Tên Usecase
+Sửa thông tin phiếu mượn
+Tác nhân
+Thủ thư
+Tiền điều kiện (Đăng nhập)
+Thủ thư phải đăng nhập vào hệ thống bằng tài khoản của thủ thư.
+Mục đích (Sửa thông tin phiếu mượn)
+Mục đích để thủ thư có thể sửa thông tin của phiếu mượn hiện có.
+Dòng sự kiện chính (Sửa thông tin phiếu mượn)
+Dòng sự kiện chính:
+-      Thủ thư muốn sửa thông tin phiếu mượn
+-      Chọn phiếu mượn muốn sửa thông tin 
+-      Sửa thông tin phiếu mượn
+-      Hiển thị phiếu mượn
+-      Kết thúc Usecase
+Dòng sự kiện phụ (Sửa thông tin phiếu mượn)
+Dòng sự kiện phụ:
+-      Nếu thông tin của các trường không thay đổi thì sẽ lưu thất bại, hiển thị thông báo yêu cầu nhập lại
+Hậu điều kiện (Sửa thông tin phiếu mượn)
+Trường hợp thành công: Hệ thống hiển thị phiếu mượn thủ thư có thể tiếp tục thực hiện các chức năng khác trong quyền hạn của mình.
+Trường hợp thất bại: Hệ thống hiển thị thông báo “Phiếu mượn đã tồn tại” và yêu cầu nhập lại
+Chức năng “Tìm kiếm phiếu mượn”
+* Đặc tả:
+
+--- Table Start ---
+Tên Usecase || Tìm kiếm phiếu mượn
+Tác nhân || T | hủ thư
+Tiền điều kiện (Đăng nhập) || T | hủ thư phải đăng nhập vào hệ thống bằng tài khoản của thủ thư.
+Mục đích (Tìm kiếm phiếu mượn) || Mục đích để thủ thư có thể tìm kiếm phiếu mượn từ CSDL
+Dòng sự kiện chính (Tìm kiếm phiếu mượn) || Dòng sự kiện chính: | -       | T | hủ thư muốn tìm kiếm phiếu mượn | -       | Chọn chức năng tìm kiếm phiếu mượn | -       | Hệ thống hiển thị giao diện tìm phiếu mượn | -       |   | T | hủ thư nhập thông tin tìm kiếm  | -       | Hệ thống hiển thị danh sách phiếu mượn có thông tin thỏa mãn tiêu chí tìm kiếm | -       | Kết thúc Usecase
+Hậu điều kiện (Tìm kiếm phiếu mượn) || Trường hợp thành công:  | Hệ thống hiển thị phiếu mượn thỏa mãn tiêu chí tìm kiếm. | Trường hợp thất bại:  | Hệ thống hiển thị thông báo “Không tìm thấy phiếu mượn thỏa mãn tiêu chí tìm kiếm”
+--- Table End ---
+
+Tên Usecase
+Tìm kiếm phiếu mượn
+Tác nhân
+Thủ thư
+Tiền điều kiện (Đăng nhập)
+Thủ thư phải đăng nhập vào hệ thống bằng tài khoản của thủ thư.
+Mục đích (Tìm kiếm phiếu mượn)
+Mục đích để thủ thư có thể tìm kiếm phiếu mượn từ CSDL
+Dòng sự kiện chính (Tìm kiếm phiếu mượn)
+Dòng sự kiện chính:
+-      Thủ thư muốn tìm kiếm phiếu mượn
+-      Chọn chức năng tìm kiếm phiếu mượn
+-      Hệ thống hiển thị giao diện tìm phiếu mượn
+-       Thủ thư nhập thông tin tìm kiếm 
+-      Hệ thống hiển thị danh sách phiếu mượn có thông tin thỏa mãn tiêu chí tìm kiếm
+-      Kết thúc Usecase
+Hậu điều kiện (Tìm kiếm phiếu mượn)
+Trường hợp thành công: Hệ thống hiển thị phiếu mượn thỏa mãn tiêu chí tìm kiếm.
+Trường hợp thất bại: Hệ thống hiển thị thông báo “Không tìm thấy phiếu mượn thỏa mãn tiêu chí tìm kiếm”
+Chức năng “Thống kê phiếu mượn”
+*Đặc tả:
+
+--- Table Start ---
+Tên usecase || Thống kê phiếu mượn
+Tác nhân || T | hủ thư
+Tiền điều kiện (Đăng nhập) || T | hủ thư đã có tài khoản trong hệ thống và đăng nhập thành công.
+Mục đích(Thống kê phiếu mượn) || Giúp thủ thư xem tổng quát về các phiếu mượn trong thư viện
+Dòng sự kiện chính (Thống kê phiếu mượn) || Chọn thống kê phiếu mượn | Hệ thống hiển thị thống kê phiếu mượn | Chọn thông kê phiếu mượn theo chức năng nếu có | Hiển thị thống kê phiếu mượn theo chức năng | Kết thúc Usecase
+--- Table End ---
+
+Tên usecase
+Thống kê phiếu mượn
+Tác nhân
+Thủ thư
+Tiền điều kiện (Đăng nhập)
+Thủ thư đã có tài khoản trong hệ thống và đăng nhập thành công.
+Mục đích(Thống kê phiếu mượn)
+Giúp thủ thư xem tổng quát về các phiếu mượn trong thư viện
+Dòng sự kiện chính (Thống kê phiếu mượn)
+Chọn thống kê phiếu mượn
+Hệ thống hiển thị thống kê phiếu mượn
+Chọn thông kê phiếu mượn theo chức năng nếu có
+Hiển thị thống kê phiếu mượn theo chức năng
+Kết thúc Usecase
+Phần 3: Phân tích hệ thống
+1. Biểu đồ trình tự:
+1.1. Chức năng đăng nhập
+1.2. Chức năng thêm sách
+1.3. Chức năng xóa sách
+1.4 Chức năng sửa sách
+1.5. Chức năng tìm kiếm sách
+1.6. Chức năng thêm bạn đọc
+1.7. Chức năng xóa bạn đọc
+1.8. Chức năng sửa bạn đọc
+1.9. Chức năng tìm kiếm bạn đọc
+1.10. Chức năng thống kế bạn đọc
+1.11. Chức năng thêm phiếu mượn
+1.12. Chức năng xóa phiếu mượn
+1.13. Chức năng sửa thông tin phiếu mượn
+1.14. Chức năng tìm kiếm phiếu mượn
+2. Biểu đồ hành động:
+2.1. Chức năng đăng nhập
+2.2. Chức năng thêm sách
+2.3. Chức năng xóa sách
+2.4. Chức năng sửa thông tin sách
+     Thiếu thông tin      Thiếu thông tin 
+     Thiếu thông tin 
+     Thiếu thông tin 
+2.5. Chức năng tìm kiếm sách
+2.6. Chức năng thêm bạn đọc
+2.7. Chức năng xóa bạn đọc
+2.8. Chức năng sửa thông tin bạn đọc
+2.9. Chức năng tìm kiếm bạn đọc
+2.10. Chức năng thống kê bạn đọc
+2.11. Chức năng thêm phiếu mượn
+2.12. Chức năng xóa phiếu mượn
+2.13. Chức năng sửa thông tin phiếu mượn
+2.14. Chức năng tìm kiếm phiếu mượn
+2.15. Chức năng thống kê phiếu mượn
+3. Biểu đồ lớp:
+4. Biểu đồ luồng dữ liệu: 
+Phần 4: Kiến trúc tổng quan và công nghệ phát triển
+1. Kiến trúc tổng quan của phần mềm 
+Model (M):
+Vai trò: Quản lý dữ liệu và xử lý logic nghiệp vụ liên quan đến dữ liệu.
+Ứng dụng trong phần mềm:
+Lưu trữ thông tin sách, sinh viên, và lịch sử mượn trả trong cơ sở dữ liệu.
+Logic nghiệp vụ: Kiểm tra số lượng sách, tính phí trả muộn, xử lý cập nhật trạng thái mượn/trả.
+Công nghệ: Sử dụng PHPMyAdmin.
+View (V):
+Vai trò: Hiển thị giao diện người dùng và trả kết quả từ Controller.
+Ứng dụng trong phần mềm:
+Các trang giao diện như: Trang chủ, Tra cứu sách, Mượn sách, Trả sách, Lịch sử mượn trả.
+Sử dụng các công nghệ frontend như HTML, CSS và Bootstrap
+Hiển thị dữ liệu nhận từ Controller (ví dụ: danh sách sách có sẵn, trạng thái mượn).
+Controller (C):
+Vai trò: Nhận yêu cầu từ người dùng, điều hướng xử lý và trả phản hồi.
+Ứng dụng trong phần mềm:
+Xử lý yêu cầu từ giao diện (ví dụ: mượn sách, trả sách).
+Gọi các chức năng từ Model để truy cập hoặc cập nhật dữ liệu.
+Trả kết quả về View để hiển thị.
+Công nghệ: Sử dụng PHP để triển khai.
+     4.  Luồng hoạt động theo MVC
+Người dùng nhập yêu cầu (ví dụ: tra cứu sách) trên View (giao diện web).
+Controller nhận yêu cầu, xử lý và chuyển đến Model để truy vấn dữ liệu.
+Model trả kết quả (danh sách sách phù hợp) về Controller.
+Controller chuyển kết quả đến View để hiển thị cho người dùng.
+2. Các công nghệ được sử dụng trong việc phát triển và triển khai phần mềm
+visual studio code
+Là một IDE Editor hỗ trợ đa ngôn ngữ lập trình và hoàn toàn miễn phí. Nó có thể chạy được trên nhiều hệ điều hành khác nhau với cấu hình nhỏ gọn. visual studio code 2019 là phiên bản ổn định nhất, trước và sau đó có phiên bản 2017 và 2022, 2023. Với hệ thống extension phong phú giúp người dùng dễ dàng cài đặt thêm các tính năng hỗ trợ lập trình với ngôn ngữ mà mình chọn. Những ngôn ngữ mà công cụ này hỗ trợ mạnh nhất gồm HTML, CSS, JavaScript, C#, C++, Python…
+MySQL và phpmyadmin
+MySQL cho phép dữ liệu được lưu trữ và truy cập trên nhiều công cụ lưu trữ, bao gồm InnoDB, CSV và NDB. MySQL cũng có khả năng sao chép dữ liệu và phân vùng bảng để có hiệu suất và độ bền tốt hơn. Người dùng MySQL không bắt buộc phải học các lệnh mới; họ có thể truy cập dữ liệu của mình bằng các lệnh SQL tiêu chuẩn.
+MySQL được viết bằng C và C++ và có thể truy cập và có sẵn trên hơn 20 nền tảng, bao gồm Mac, Windows, Linux và Unix. RDBMS hỗ trợ cơ sở dữ liệu lớn với hàng triệu bản ghi và hỗ trợ nhiều loại dữ liệu bao gồm các số nguyên có chữ ký hoặc không dấu có độ dài 1, 2, 3, 4 và 8 byte(s); FLOAT; DOUBLE; CHAR; VARCHAR; BINARY; VARBINARY; TEXT; BLOB; DATE; TIME; DATETIME; TIMESTAMP; YEAR; SET; ENUM; và các kiểu OpenGIS. Các loại chuỗi có độ dài cố định và biến đổi cũng được hỗ trợ.
+Để bảo mật, MySQL sử dụng một đặc quyền truy cập và hệ thống mật khẩu được mã hóa cho phép xác minh dựa trên máy chủ. Các máy khách MySQL có thể kết nối với Máy chủ MySQL bằng một số giao thức, bao gồm cả giao thức TCP/IP trên bất kỳ nền tảng nào. MySQL cũng hỗ trợ một số chương trình máy khách và tiện ích, chương trình dòng lệnh và công cụ quản trị như MySQL Workbench.
+StarUML
+StarUML là một mô hình nền tảng, là phần mềm hỗ trợ UML (Unified Modeling Language). Tích cực hỗ trợ các phương pháp tiếp cận MDA (Model Driven Architecture) bằng cách hỗ trợ các khái niệm hồ sơ UML. StarUML vượt trội trong việc tùy biến môi trường của người dùng và có khả năng mở rộng cao trong chức năng của nó. dùng StarUML, một trong các công cụ mô hình hóa phần mềm hàng đầu, sẽ đảm bảo tối đa hóa năng suất và chất lượng của các dự án phần mềm của bạn.
+Là công cụ điều chỉnh cho người dùng:
+StarUML cung cấp tùy biến tối đa với môi trường của người dùng bằng cách cung cấp các biến tùy biến mà có thể được áp dụng trong phương pháp phát triển phần mềm của người sử dụng, nền tảng dự án, và ngôn ngữ.
+Hỗ trợ đúng DMA:
+StarUML cho phép tạo ra các mô hình nền tảng độc lập. Người dùng có thể dễ dàng có được sản phẩm cuối cùng của họ thông qua tài liệu mẫu đơn giản.
+Khả năng mở rộng và linh hoạt tuyệt vời:
+StarUML cung cấp khả năng mở rộng và tính linh hoạt tuyệt vời. Nó cung cấp khuôn khổ cho việc mở rộng các chức năng của công cụ Add-In. Nó được thiết kế để cho phép truy cập vào tất cả các chức năng của mô hình meta mô hình và công cụ thông qua COM tự động hóa, và nó cung cấp phần mở rộng của menu và các mục tùy chọn. Công cụ này cũng có thể được tích hợp với bất kỳ công cụ bên ngoài.
+Phần 5: Cài đặt và mã nguồn
+1. Link liên kết github 
+https://github.com/Hugnh26n10ne/QuanLyThuVien.git
+Phần 6: Kiểm thử phần mềm
+1. Kế hoạch kiểm thử 
+1.1. Kiểm thử chức năng
+a. Test chức năng đăng nhập cho admin
+
+--- Table Start ---
+Test case || Các bước thực hiện || Kết quả trả về || Trạng thái
+TC1 | user:””  | pass:”” || Không nhập tài khoản và mật khẩu. | Bấm đăng nhập || Yêu cầu nhập tài khoản và mật khẩu. || Passed
+TC2 | user:”admin1” pass:”” || Nhập tài khoản. | Bấm đăng nhập || Yêu cầu nhập mật khẩu. || Passed
+TC3 | user:”” pass:”1999” || Nhập mật khẩu. | Bấm đăng nhập. || Yêu cầu nhập tài khoản. || Passed
+TC4 | user:”abc” pass:”abc” || Nhập tài khoản sai. | Nhập mật khẩu sai. | Bấm đăng nhập. || Tài khoản hoặc mật khẩu không hợp lệ || Passed
+TC5 | user:”admin1” pass:”1999” || Nhập tài khoản đúng. | Nhập mật khẩu đúng. | Bấm đăng nhập. || Hiển thị trang chủ admin || Passed
+--- Table End ---
+
+Test case
+Các bước thực hiện
+Kết quả trả về
+Trạng thái
+TC1
+user:”” 
+pass:””
+Không nhập tài khoản và mật khẩu.
+Bấm đăng nhập
+Yêu cầu nhập tài khoản và mật khẩu.
+Passed
+TC2
+user:”admin1” pass:””
+Nhập tài khoản.
+Bấm đăng nhập
+Yêu cầu nhập mật khẩu.
+Passed
+TC3
+user:”” pass:”1999”
+Nhập mật khẩu.
+Bấm đăng nhập.
+Yêu cầu nhập tài khoản.
+Passed
+TC4
+user:”abc” pass:”abc”
+Nhập tài khoản sai.
+Nhập mật khẩu sai.
+Bấm đăng nhập.
+Tài khoản hoặc mật khẩu không hợp lệ
+Passed
+TC5
+user:”admin1” pass:”1999”
+Nhập tài khoản đúng.
+Nhập mật khẩu đúng.
+Bấm đăng nhập.
+Hiển thị trang chủ admin
+Passed
+B1. Kích chọn input tên đăng nhập. 
+B2. Nhập tên tên đăng nhập 
+B3.Kích chọn mật khẩu và nhập mật khẩu
+B5: Bấm đăng nhập 
+b. Kiểm thử chức năng quản lý thông tin sách 
+
+--- Table Start ---
+Testcase ID || Mục đích || Các bước thực hiện || Kết quả dự kiến || Kết quả nhận được
+ID | 1 || Kiểm tra chức năng thêm sách mới || 1. Ghi thông tin đầy đủ của sách cần thêm | 2. Click button Lưu. ||  Hiển thị thông báo:  | "Thêm thành công." || Passed
+ID | 2 ||  || 3. Click button Lưu khi chưa nhập hết thông tin cơ bản. || Hiển thị thông báo:  | "Bạn cần nhập đầy đủ thông tin."  || Passed
+ID | 3 || Kiểm tra chức năng xóa sách || 1. Chọn sách muốn xóa. | 2. Click button Xóa. | 3.Lựa chọn chắc chắn xóa || Hiển thị thông báo: | “Xóa thành công” || Passed
+ID | 4 || Kiểm tra chức năng xem  | sách || 1.Chọn  | quản lý thông tin sách |   | 2.Click  | danh sách thông tin sách || Hiển thị Thông tin đầy đủ về |  tất cả các quyển sách || Passed
+ID | 5 || Kiểm tra chức năng cập nhật  | sách || 1.  | Clich vào nút sửa và sửa các thông tin cần sửa | 2. Click button  | Lưu | . || Hiển thị thông báo:  | " | Sửa |  thành công." || Passed
+ ||  || 1. Để trống nội dung  | các mục cơ bản. | 2. Click button  | Lưu | . || Hiển thị thông báo “Bạn cần nhập đầy đủ thông tin ” || Passed
+--- Table End ---
+
+Testcase ID
+Mục đích
+Các bước thực hiện
+Kết quả dự kiến
+Kết quả nhận được
+ID1
+Kiểm tra chức năng thêm sách mới
+1. Ghi thông tin đầy đủ của sách cần thêm
+2. Click button Lưu.
+ Hiển thị thông báo: 
+"Thêm thành công."
+Passed
+ID2
+3. Click button Lưu khi chưa nhập hết thông tin cơ bản.
+Hiển thị thông báo: 
+"Bạn cần nhập đầy đủ thông tin." 
+Passed
+ID3
+Kiểm tra chức năng xóa sách
+1. Chọn sách muốn xóa.
+2. Click button Xóa.
+3.Lựa chọn chắc chắn xóa
+Hiển thị thông báo:
+“Xóa thành công”
+Passed
+ID4
+Kiểm tra chức năng xem sách
+1.Chọn quản lý thông tin sách 
+2.Click danh sách thông tin sách
+Hiển thị Thông tin đầy đủ về tất cả các quyển sách
+Passed
+ID5
+Kiểm tra chức năng cập nhật sách
+1. Clich vào nút sửa và sửa các thông tin cần sửa
+2. Click button Lưu.
+Hiển thị thông báo: 
+"Sửa thành công."
+Passed
+1. Để trống nội dung các mục cơ bản.
+2. Click button Lưu.
+Hiển thị thông báo “Bạn cần nhập đầy đủ thông tin ”
+Passed
+c. Kiểm thử chức năng quản lý thông tin bạn đọc
+
+--- Table Start ---
+Testcase ID || Mục đích || Các bước thực hiện || Kết quả dự kiến || Kết quả nhận được
+ID | 1 || Kiểm tra chức năng  | thêm bạn đọc mới || 1. Ghi thông tin đầy đủ của sách cần thêm | 2. Click button Lưu. ||  Hiển thị thông báo:  | "Thêm thành công." || Passed
+ID | 2 ||  || 3. Click button Lưu khi chưa nhập hết thông tin cơ bản. || Hiển thị thông báo:  | "Không được để trống dữ liệu."  || Passed
+ID | 3 || Kiểm tra chức năng xóa bạn đọc || 1. Chọn sách muốn xóa. | 2. Click button Xóa. | 3.Lựa chọn chắc chắn xóa || Hiển thị thông báo: | “Xóa thành công” || Passed
+ID | 4 || Kiểm tra chức năng xem bạn đọc || 1.Chọn quản lý thông tin bạn đọc | 2.Click danh sách thông tin bạn đọc || Hiển thị thông tin đầy đủ về tất cả các bạn đọc || Passed
+ID | 5 || Kiểm tra chức năng cập nhật bạn đọc || 1. Clich vào nút sửa và sửa các thông tin cần sửa | 2. Click button Lưu. || Hiển thị thông báo:  | "Sửa thành công." || Passed
+ ||  || 1. Để trống nội dung các mục cơ bản. | 2. Click button Lưu. || Hiển thị thông báo “Không được để trống dữ liệu.” || Passed
+--- Table End ---
+
+Testcase ID
+Mục đích
+Các bước thực hiện
+Kết quả dự kiến
+Kết quả nhận được
+ID1
+Kiểm tra chức năng thêm bạn đọc mới
+1. Ghi thông tin đầy đủ của sách cần thêm
+2. Click button Lưu.
+ Hiển thị thông báo: 
+"Thêm thành công."
+Passed
+ID2
+3. Click button Lưu khi chưa nhập hết thông tin cơ bản.
+Hiển thị thông báo: 
+"Không được để trống dữ liệu." 
+Passed
+ID3
+Kiểm tra chức năng xóa bạn đọc
+1. Chọn sách muốn xóa.
+2. Click button Xóa.
+3.Lựa chọn chắc chắn xóa
+Hiển thị thông báo:
+“Xóa thành công”
+Passed
+ID4
+Kiểm tra chức năng xem bạn đọc
+1.Chọn quản lý thông tin bạn đọc
+2.Click danh sách thông tin bạn đọc
+Hiển thị thông tin đầy đủ về tất cả các bạn đọc
+Passed
+ID5
+Kiểm tra chức năng cập nhật bạn đọc
+1. Clich vào nút sửa và sửa các thông tin cần sửa
+2. Click button Lưu.
+Hiển thị thông báo: 
+"Sửa thành công."
+Passed
+1. Để trống nội dung các mục cơ bản.
+2. Click button Lưu.
+Hiển thị thông báo “Không được để trống dữ liệu.”
+Passed
+d. Kiểm thử chức năng quản lý thông tin phiếu mượn
+
+--- Table Start ---
+Testcase ID || Mục đích || Các bước thực hiện || Kết quả dự kiến || Kết quả nhận được
+ID | 1 || Kiểm tra chức năng thêm phiếu mượn mới || 1. Ghi thông tin đầy đủ của sách cần thêm | 2. Click button Lưu. ||  Hiển thị thông báo:  | "Thêm thành công." || Passed
+ID | 2 ||  || 3. Click button Lưu khi chưa nhập hết thông tin cơ bản. || Hiển thị thông báo:  | "Không được để trống dữ liệu."  || Passed
+ID | 3 || Kiểm tra chức năng xóa phiếu mượn || 1. Chọn sách muốn xóa. | 2. Click button Xóa. | 3.Lựa chọn chắc chắn xóa || Hiển thị thông báo: | “Xóa thành công” || Passed
+ID | 4 || Kiểm tra chức năng xem phiếu mượn || 1.Chọn quản lý thông tin bạn đọc | 2.Click danh sách thông tin bạn đọc || Hiển thị thông tin đầy đủ về tất cả các phiếu mượn || Passed
+ID | 5 || Kiểm tra chức năng cập nhật phiếu mượn || 1. Clich vào nút sửa và sửa các thông tin cần sửa | 2. Click button Lưu. || Hiển thị thông báo:  | "Sửa thành công." || Passed
+ ||  || 1. Để trống nội dung các mục cơ bản. | 2. Click button Lưu. || Hiển thị thông báo “Không được để trống dữ liệu.” || Passed
+--- Table End ---
+
+Testcase ID
+Mục đích
+Các bước thực hiện
+Kết quả dự kiến
+Kết quả nhận được
+ID1
+Kiểm tra chức năng thêm phiếu mượn mới
+1. Ghi thông tin đầy đủ của sách cần thêm
+2. Click button Lưu.
+ Hiển thị thông báo: 
+"Thêm thành công."
+Passed
+ID2
+3. Click button Lưu khi chưa nhập hết thông tin cơ bản.
+Hiển thị thông báo: 
+"Không được để trống dữ liệu." 
+Passed
+ID3
+Kiểm tra chức năng xóa phiếu mượn
+1. Chọn sách muốn xóa.
+2. Click button Xóa.
+3.Lựa chọn chắc chắn xóa
+Hiển thị thông báo:
+“Xóa thành công”
+Passed
+ID4
+Kiểm tra chức năng xem phiếu mượn
+1.Chọn quản lý thông tin bạn đọc
+2.Click danh sách thông tin bạn đọc
+Hiển thị thông tin đầy đủ về tất cả các phiếu mượn
+Passed
+ID5
+Kiểm tra chức năng cập nhật phiếu mượn
+1. Clich vào nút sửa và sửa các thông tin cần sửa
+2. Click button Lưu.
+Hiển thị thông báo: 
+"Sửa thành công."
+Passed
+1. Để trống nội dung các mục cơ bản.
+2. Click button Lưu.
+Hiển thị thông báo “Không được để trống dữ liệu.”
+Passed
+1.2. Kiểm thử phi chức năng
+Kiểm thử phi chức năng bao gồm 
+Kiểm thử hiệu năng (performance testing) 
+Kiểm thử độ tải (load testing) 
+Kiểm thử stress (stress testing) 
+Kiểm thử tính khả dụng (usability testing) 
+Kiểm thử bảo trì (maintainability testing) 
+Kiểm thử độ tin cậy (reliability testing) 
+Kiểm thử tính di động (portability testing)
+Kiểm thử phi chức năng xem xét các hành vi bên ngoài của phần mềm. 
+1.3. Kiểm thử cấu trúc/ kiến trúc phần mềm
+Kiểm thử cấu trúc ( white -box) có thể được thực hiện ở tất cả các mức độ kiểm thử
+Kỹ thuật kiểm thử cấu trúc được sử dụng tốt nhất sau các kỹ thuật dựa trên các đặc điểm kỹ thuật( specification-based), giúp đo lường kỹ lưỡng kiểm thử thông qua đánh giá độ bao phủ của loại cấu trúc. 
+Độ bao phủ là phạm vi mà một cấu trúc đã được thực hiện bởi một bộ kiểm thử, tính theo phần trăm của các mục đã được bao phủ. Nếu độ bao phủ không phải là 100% các kiểm thử sẽ được thiết kế để kiểm tra các mục đã bị bỏ lỡ để tăng độ bao phủ.
+Kiểm thử cấu trúc thực hiện tại tất cả các mức độ kiểm thử, nhưng đặc biệt là kiểm thử thành phần (component testing) và kiểm thử tích hợp thành phần.
+Phương pháp kiểm thử cấu trúc cũng có thể áp dụng ở các mức độ như kiểm thử tích hợp hệ thống hoặc kiểm thử chấp nhận.
+Kỹ thuật sử dụng: Kỹ thuật dựa vào cấu trúc. Các mô hình luồng điều khiển thường được sử dụng để hỗ trợ.
+Kết Luận
+Thông qua việc tìm hiểu và phân tích thiết kế “Hệ thống quản lý mượn trả sách của thư viện trường đại học”, chúng em đã hiểu rõ hơn về nghiệp vụ quản lý thư viện, từ việc lưu trữ thông tin sách, quản lý tài khoản sinh viên, đến theo dõi trạng thái mượn trả sách. Bên cạnh đó, chúng em cũng học được cách áp dụng công nghệ thông tin để cải tiến quy trình quản lý truyền thống, giúp thư viện hoạt động hiệu quả và hiện đại hơn.
+Quá trình xây dựng hệ thống này đã giúp chúng em trang bị thêm nhiều kiến thức quý báu về phát triển phần mềm, từ giai đoạn phân tích yêu cầu đến thiết kế và kiểm thử hệ thống. Chúng em hy vọng rằng sản phẩm này có thể đóng góp một phần nhỏ trong việc nâng cao hiệu quả hoạt động của thư viện, giúp sinh viên và nhân viên thư viện tiết kiệm thời gian, công sức trong việc quản lý và tra cứu thông tin.
+Mặc dù đã cố gắng hoàn thiện, nhưng chắc chắn báo cáo và sản phẩm của chúng em không tránh khỏi những thiếu sót. Vì vậy, chúng em rất mong nhận được ý kiến đóng góp từ thầy (cô) để có thể cải thiện hệ thống tốt hơn. Cuối cùng, chúng em xin gửi lời cảm ơn chân thành đến thầy (cô) đã tạo điều kiện và hướng dẫn chúng em trong suốt quá trình thực hiện đề tài!
+Lời Kết
+Sau khi hoàn thành bài tập lớn xây dựng hệ thống quản lý mượn trả sách của thư viện, chúng em đã đạt được tài liệu hoàn chỉnh và tạo ra một chương trình đáp ứng tốt nhu cầu của người dùng. Hệ thống bao gồm các chức năng: quản lý thông tin sách (thêm, sửa, xóa, tìm kiếm), quản lý tài khoản sinh viên, mượn trả sách, tra cứu lịch sử mượn trả, và cảnh báo trả muộn. Đồng thời, chúng em cũng đã thiết kế giao diện thân thiện, trực quan, dễ sử dụng, phù hợp để sử dụng trên máy tính.
+Việc xây dựng hệ thống này rất cần thiết để đáp ứng nhu cầu quản lý và sử dụng thư viện hiện đại. Với các tính năng quản lý sách và tài khoản người dùng, hệ thống giúp nhân viên thư viện dễ dàng theo dõi, kiểm soát trạng thái mượn trả và cập nhật thông tin nhanh chóng. Sinh viên có thể tra cứu thông tin sách, đăng ký mượn sách, và xem lịch sử mượn trả của mình một cách thuận tiện.
+Hơn nữa, giao diện web thân thiện, bắt mắt, cùng với mô hình cơ sở dữ liệu được thiết kế chặt chẽ, đảm bảo tính bảo mật và độ chính xác của thông tin. Các tính năng như đăng nhập, thay đổi mật khẩu và quản lý thông tin cá nhân cũng được tích hợp để đảm bảo sự an toàn và riêng tư cho người dùng.
+Tổng quan lại, hệ thống quản lý mượn trả sách không chỉ cải thiện hiệu quả hoạt động của thư viện, mà còn mang lại sự tiện lợi, hiện đại và bảo mật cao trong việc phục vụ sinh viên và cán bộ. Sản phẩm này là một bước tiến trong việc hiện đại hóa quản lý thư viện, góp phần vào sự phát triển của trường đại học trong thời đại công nghệ 4.0.
