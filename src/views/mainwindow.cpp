@@ -434,7 +434,7 @@ bool MainWindow::confirmDelete(const QString& item) {
 void MainWindow::updateStatusBar() {
     auto& db = DatabaseManager::instance();
     statusBar()->showMessage(
-        QString("  📊 Sinh viên: %1  |  📚 Lớp học: %2  |  🏫 Khoa: %3  |  ✅ Hệ thống sẵn sàng")
+        QString("  Sinh viên: %1  |  Lớp học: %2  |  Khoa: %3  |  Hệ thống sẵn sàng")
             .arg(db.countStudents())
             .arg(db.countClasses())
             .arg(db.countDepartments())

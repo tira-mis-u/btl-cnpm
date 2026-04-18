@@ -473,10 +473,17 @@ QList<Student> DatabaseManager::searchStudents(const QString& keyword) {
     QList<Student> list;
     QSqlQuery q;
     q.prepare(QString("%1 WHERE s.student_id LIKE ? OR s.full_name LIKE ? "
+                      "OR s.phone LIKE ? OR s.email LIKE ? OR c.name LIKE ? "
+                      "OR d.name LIKE ? OR s.address LIKE ? "
                       "ORDER BY s.full_name").arg(STUDENT_SELECT));
     QString like = "%" + keyword + "%";
-    q.addBindValue(like);
-    q.addBindValue(like);
+    q.addBindValue(like); // student_id
+    q.addBindValue(like); // full_name
+    q.addBindValue(like); // phone
+    q.addBindValue(like); // email
+    q.addBindValue(like); // class name
+    q.addBindValue(like); // department name
+    q.addBindValue(like); // address
     q.exec();
     while (q.next()) list.append(rowToStudent(q));
     return list;
