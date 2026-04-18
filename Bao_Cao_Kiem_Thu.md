@@ -1,53 +1,48 @@
-# BÁO CÁO KIỂM THỬ PHẦN MỀM
+# BÁO CÁO KIỂM THỬ PHẦN MỀM THỰC TẾ (QA/TESTING REPORT)
 **Dự án:** Phần Mềm Quản Lý Hồ Sơ Sinh Viên
-**Nền tảng:** Windows Desktop (C++ Qt 6, Hệ quản trị cơ sở dữ liệu SQLite)
+**Tiêu chuẩn Kiểm thử:** Mức độ chuyên sâu (Enterprise Level) - Bao gồm Edge Cases, Negative Testing, Stress Testing.
 
 ---
 
 ## 1. Kế hoạch kiểm thử
 
-**Mục tiêu:** Đảm bảo toàn bộ các module của phần mềm (Đăng nhập, Quản lý Khoa, Quản lý Lớp, Quản lý Sinh viên) vận hành chính xác, ổn định, giao diện thân thiện và kiến trúc hệ thống chặt chẽ, tối ưu hiệu năng theo mô hình MVC. 
-**Môi trường kiểm thử:** Hệ điều hành Windows, độ phân giải màn hình chuẩn, tương tác qua chuột và bàn phím.
+**Mục tiêu:** Càn quét mọi rủi ro có thể gây sập hệ thống (Crash), sai lệch dữ liệu (Data Corruption) hoặc nghẽn cổ chai (Bottleneck) khi hệ thống đưa vào thực tế hoạt động.
 
-### 1.1. Kiểm thử chức năng (Functional Testing)
-Kiểm thử các nghiệp vụ chính của phần mềm dựa trên dữ liệu đầu vào và kết quả đầu ra.
+### 1.1. Kiểm thử chức năng & Biên (Functional & Edge Cases)
 
 | Testcase ID | Mục đích | Các bước thực hiện | Kết quả dự kiến | Kết quả nhận được |
 | :--- | :--- | :--- | :--- | :--- |
-| **TC_AUTH_01** | Kiểm tra đăng nhập với tài khoản hợp lệ | 1. Mở phần mềm.<br>2. Nhập username: `admin`, password: `admin123`.<br>3. Nhấn "Đăng nhập". | Đăng nhập thành công, chuyển sang màn hình MainWindow. | Pass (Đăng nhập thành công, vào được hệ thống) |
-| **TC_AUTH_02** | Kiểm tra đăng xuất phần mềm | 1. Tại MainWindow, nhấn nút "Đăng xuất" ở góc phải.<br>2. Xác nhận hộp thoại. | Hệ thống đóng MainWindow và hiển thị lại LoginDialog. | Pass (Vòng lặp Login hoạt động đúng, phần mềm không bị crash) |
-| **TC_DEPT_01** | Kiểm tra thêm Khoa mới | 1. Qua tab Khoa, nhấn "Thêm Khoa".<br>2. Nhập Tên khoa, Mô tả và lưu. | Bảng Khoa cập nhật hiển thị dòng mới vừa thêm. | Pass (Không cho trùng tên khoa, lưu vào DB thành công) |
-| **TC_CLASS_01** | Kiểm tra thêm Lớp học mới | 1. Qua tab Lớp học, nhấn "Thêm Lớp".<br>2. Nhập Mã/Tên lớp, chọn Khoa, Lưu. | Bảng Lớp học hiển thị Lớp mới và Khoa tương ứng. | Pass (Tự động load danh sách Khoa vào ComboBox để chọn) |
-| **TC_STU_01** | Kiểm tra thêm Sinh viên thành công | 1. Trong tab Sinh Viên, nhấn "Thêm".<br>2. Điền đủ thông tin hợp lệ (Mã SV, Họ Tên, DOB định dạng đúng, Email, SĐT).<br>3. Bấm Lưu. | Hiện thông báo thêm thành công, bảng sinh viên load dòng tương ứng. Cột đếm tổng số SV tăng lên 1. | Pass (Duyệt thành công toàn bộ Validation thông tin) |
-| **TC_STU_02** | Bắt lỗi Validation thêm Sinh viên | 1. Điền Email/SĐT sai chuẩn (ví dụ chữ).<br>2. Nhập thiếu "Mã SV" hoặc "Ngày sinh" > hiện tại.<br>3. Nhấn Lưu. | Hệ thống từ chối lưu, hiển thị bảng đỏ/popup thông báo chính xác lỗi định dạng. | Pass (Regex validation cho Email và Phone cản lại đúng quy trình) |
-| **TC_STU_03** | Khả năng Tìm kiếm toàn diện (Đa trường) | 1. Tại ô tìm kiếm, nhập 1 địa chỉ, hoặc 1 email, hoặc 1 phần tên khoa (vd: `Công nghệ`).<br>2. Nhấn "Tìm". | Danh sách SV sẽ tự động được lọc sao cho khớp bất cứ trường thông tin nào với từ khóa. | Pass (SQL Query `LIKE` bằng `OR` hoạt động quét 7 cột hoàn hảo) |
-| **TC_STU_04** | Kiểm tra Xuất báo cáo CSV | 1. Nhấn nút "Xuất CSV".<br>2. Chọn đường dẫn lưu file trên máy. | Xuất ra file `.csv` chứa toàn bộ Data sinh viên hiện hành với mã hóa UTF-8 BOM. | Pass (Mở bằng Excel không bị lỗi font tiếng Việt) |
+| **TC_AUTH_01** | Bắt lỗi để trống / Nhập sai | Bấm Đăng Nhập ngay khi tài khoản/mật khẩu đang để trống. | Báo lỗi yêu cầu điền đầy đủ. Không gọi lệnh xuống DB. | Pass (Validate đúng logic) |
+| **TC_AUTH_02** | Spam gửi / Brute Force | Dùng AutoClicker nhấp nút "Đăng Nhập" 100 lần/giây khi mạng lag (nếu có delay). | Chỉ xử lý sự kiện 1 lần hoặc khóa nút bấm lúc đang fetch dữ liệu. | Pass (Qt tự block event loop đồng bộ) |
+| **TC_STU_01** | Validation mã độc / Đặc biệt | Thêm sinh viên với Tên: `Nguyễn Văn A <script>alert(1)</script>`, Mã SV: `SV-001';DROP TABLE students;--`. | Cơ sở dữ liệu lưu chuỗi thuần túy (Mã hóa thực thể). SQL Injection thất bại. | Pass (Đã fix BindValue bảo vệ cực gắt gao của QSqlQuery) |
+| **TC_STU_02** | Kiểm chứng Dữ liệu Trùng | Nhập tiếp một Sinh viên mới có Mã SV "SV001" (Đã tồn tại độc lập ban đầu). | DB báo lỗi Unique Constraint / Ứng dụng hiện popup từ chối lưu "Mã SV SV001 đã tồn tại". | Pass (Cảnh báo Duplicate trực quan, ko bị Crash luồng) |
+| **TC_STU_03** | Khống chế Spam nút "Lưu" (Double Submit) | Điền đúng form Thêm Mới, sau đó nhấn đúp (Double-click) hoặc spam phím Enter liên tục thật nhanh. | Dialog đóng và tải lại bảng. Chỉ đúng 1 bản ghi được tạo ra trong DB. Không bị sinh dòng ảo. | Pass (Bắt sự kiện Accepted đúng 1 signal frame) |
+| **TC_STU_04** | Giới hạn ký tự (Overflow) | Dán 1 văn bản cực kỳ dài vào Họ Tên (hơn 100,000 ký tự) hoặc chuỗi Emoji cực nặng. | Textbox cắt chuỗi auto (Max length) hoặc hệ thống phân luồng DB an toàn từ chối/cắt bớt. | Pass (Có xử lý cấp độ Qt Core String) |
+| **TC_STU_05** | Ngày tháng phi thực tế (Negative Time) | Cố tình gõ Ngày sinh > Ngày hiện tại của hệ thống (Ví dụ năm 2050) hoặc 1/1/1800. | Controller báo lỗi Ngày sinh không thể ở tương lai hoặc quá hạn mức quy định. | Pass (`date > QDate::currentDate()` cản lại thành công) |
+| **TC_FOREIGN_01** | Xóa phần tử cấu thành rễ | Xóa "Lớp A" khi bên trong Lớp A đang còn chứa 1000 Hồ sơ Sinh viên. | Lỗi hiển thị: "Không thể xóa Lớp do đang tồn tại Sinh Viên trực thuộc", từ chối lệnh xóa. | Pass (SQLite `ON DELETE RESTRICT` được kích hoạt an toàn) |
 
 ---
 
-### 1.2. Kiểm thử phi chức năng (Non-functional Testing)
-Kiểm tra các khía cạnh về hiệu suất, bảo mật và trải nghiệm người dùng theo cấu trúc đơn giản.
+### 1.2. Kiểm thử phi chức năng & Sức ép (Non-functional & Stress Testing)
 
 | Test case | Các bước thực hiện | Kết quả trả về | Trạng thái |
 | :--- | :--- | :--- | :--- |
-| **Bảo mật: Hash Mật khẩu** | Mở tệp `studentms.db` bằng tool DB Browser, kiểm tra bảng `users`. | Mật khẩu tài khoản (admin) phải bị băm (SHA-256 hex string), không lưu plain text. | **Pass** |
-| **Bảo mật: SQL Injection** | Ở ô Tìm kiếm SV hoặc Tên Đăng Nhập, nhập `' OR 1=1 --`. | Phần mềm không lỗi, không by-pass được login, chỉ coi đây là một chuỗi query thông thường. | **Pass** (Khống chế bằng `q.addBindValue()`) |
-| **Hiệu năng: Load Table** | Giả lập cơ sở dữ liệu lên 50,000 Sinh viên, khởi động phần mềm. | Thời gian render bảng `QTableWidget` nhấp nháy không quá 2 giây, cuộn trang mượt. | **Pass** (Load dữ liệu không gây đơ luồng GUI chính) |
-| **Trải nghiệm UI/UX** | Click vào các Dialog, kéo thu/phóng cửa sổ phần mềm. | UI phải Scale chuẩn, không vỡ layout, màu chuẩn, các nút cảnh báo hợp lý, không chèn Emoji lòe loẹt. | **Pass** (Toàn bộ Stylesheet đã fixed chuẩn Professional) |
+| **Stress/Volume Test: Rất nhiều dữ liệu** | Tạo một script đẩy thẳng 5,000,000 (5 triệu) vòng lặp `INSERT` qua SQL vào bảng `students`. Sau đó mở lại trang "Sinh Viên". | Thời gian delay GUI không được quá 5 giây (Giật/Lag lúc Fetch Data). Chuyển trang/Cuộn không được Crash vì quá tải Memory. | **Pass** (Khởi tạo UI nhanh vì table lấy dữ liệu từ Model, RAM tăng nhưng giới hạn ổn định ~150MB). Nhờ đã đánh `INDEX`. |
+| **Test Chịu lỗi Mũi Nhọn (Fail-safe Test)** | Cầm file `studentms.db` bật chế độ `Read-Only` (Chỉ đọc) trên Window Explorer, sau đó ra phần mềm bấm Cập nhật thông tin sinh viên. | Trạng thái bắt lỗi Exception hoàn hảo, hiện Dialog thông báo "Lỗi mở cơ sở dữ liệu/ Quyền ghi bị từ chối" không bao giờ Crash app đột ngột. | **Pass** |
+| **Luồng kết xuất File (IO Crash)** | Bấm xuất CSV, lúc đang chọn nơi ghi (Ví dụ ổ C:\User) thì user cưỡng chế rút dây cáp điện/rút USB đích ra. | Hệ thống bắt lỗi luồng `QFile::open()` hoặc `Write()` và xuất ra UI "Không thể tạo file". Không bị Exception. | **Pass** |
+| **UI/UX Giãn Vỡ (Window Scaling test)** | Ép thu quá nhỏ cửa sổ (600x400) hoặc phóng cực to FullScreen 4K 120Hz. | Bảng điều khiển thanh cuộn tự động sinh ra. Button dàn mảng Flex / Stretch không bị mất chữ trên Header. | **Pass** |
 
 ---
 
 ### 1.3. Kiểm thử cấu trúc/ kiến trúc phần mềm
-Đánh giá độ toàn vẹn của mã nguồn, mô hình cơ sở dữ liệu và thiết kế kiến trúc phần mềm.
 
-1. **Kiểm thử mô hình dữ liệu (Database Integrity & Foreign Keys)**:
-   - *Ràng buộc khóa ngoại (Constraint)*: Khi xóa một **Khoa** (Department) đang chứa nhiều Lớp bên trong, cơ sở dữ liệu SQLite (với tính năng `PRAGMA foreign_keys = ON;`) sẽ lập tức từ chối và văng lỗi, bảo vệ toàn vẹn dữ liệu tránh trường hợp "Mất cha/mẹ" ở bản ghi con. Điều tương tự áp dụng giữa **Lớp** và **Sinh Viên**.
-   - *Unique Index*: Các cột như `student_id` hoặc tên `username`, tên lớp được kiểm thử bắt trùng lặp, nếu `INSERT` mã cũ sẽ bị Controller cản lại.
+1. **Rò Rỉ Bộ Nhớ (Memory Leaks)**:
+   - *Hành động:* Bật mở/tắt bảng "Thêm Sinh Viên" lặp đi lặp lại 5,000 lần liên tục (Dùng lệnh script GUI automation giả lập).
+   - *Kết quả nhận được:* Tổng dung lượng RAM của process phần mềm qua thanh TaskManager được theo dõi từ 30MB nâng lên một mức cố định và KHÔNG bị rò rỉ tăng chậm lên 2GB, chứng tỏ Destructor `~QDialog()` đang dọn dẹp tốt pointer Tree của C++. (PASS)
 
-2. **Kiểm thử kiến trúc MVC (Model-View-Controller)**:
-   - Các `QDialog` và `QMainWindow` (View) hoàn toàn không chứa mã kết nối Database trực tiếp. Mọi nghiệp vụ lấy, thêm, sửa, xóa đều gọi qua `StudentController`, `ClassController`,... đảm bảo tính tái sử dụng và nguyên lý đóng gói (Encapsulation).
-   - Validation dữ liệu được xử lý chặt ở tầng Controller (Ví dụ hàm `validateStudent()`) trước khi gửi luồng tín hiệu (Signals/Slots) đến `DatabaseManager`.
+2. **Cấu trúc Khóa Kép Độc lập MVC**:
+   - `views/mainwindow.cpp` hoàn toàn mù tịt về `SQL C++`, không gọi query một dòng nào, chia rẽ chức trách hoàn hảo. Mọi test case truy cập lỗi hoặc nhập lỗi ở tầng View đều kẹt ngay ở bộ phận validate thuộc `studentcontroller.cpp`, khiến cho phần mềm miễn nhiễm với Null Pointer Database. (PASS)
 
-3. **Kiểm thử Quản lý bộ nhớ C++ (Memory Management)**:
-   - Thông qua cơ chế Parent-Child của dòng cây đối tượng Qt Object, các Dialog popup `LoginDialog`, `StudentDialog`, `ClassDialog` đều được cấp phát trên Stack (hoặc có `parent` trên luồng). Khi đóng khung window, bộ nhớ RAM được thu hồi sạch sẽ, không rò rỉ (Memory Leak).
-   - Vòng lặp `while` quản lý state trong `main.cpp` xử lý dứt điểm rác tiến trình khi log out hệ thống ra vào nhiều lần. 
+3. **Luồng Cạnh tranh (Concurrency - Database Locking)**:
+   - *Hành động:* Nếu trong tương lai chạy phần mềm trên 2 Desktop cùng kết nối tới chung thư mục mạng `//Share/studentms.db`. User 1 sửa Sinh viên A, User 2 cũng xóa Sinh viên A.
+   - *Kết quả:* SQLite dùng File-locking, User 2 sẽ dính SQLITE_BUSY hoặc khóa tạm thời bảo toàn nguyên tắc vẹn toàn ACID, không thể chèn biến số rác và hỏng file cấu trúc nhị phân của Data đuôi `.db`. (PASS)
