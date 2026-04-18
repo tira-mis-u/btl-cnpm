@@ -94,17 +94,21 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    // ── Màn hình đăng nhập ────────────────────────────────────────────────────
-    LoginDialog loginDlg;
-    if (loginDlg.exec() != QDialog::Accepted) {
-        return 0; // Người dùng hủy đăng nhập
+    int ret = 1000;
+    while (ret == 1000) {
+        // ── Màn hình đăng nhập ────────────────────────────────────────────────────
+        LoginDialog loginDlg;
+        if (loginDlg.exec() != QDialog::Accepted) {
+            ret = 0; // Thoát hẳn
+            break;
+        }
+
+        // ── Cửa sổ chính ──────────────────────────────────────────────────────────
+        MainWindow mainWin;
+        mainWin.show();
+
+        ret = app.exec();
     }
-
-    // ── Cửa sổ chính ──────────────────────────────────────────────────────────
-    MainWindow mainWin;
-    mainWin.show();
-
-    int ret = app.exec();
 
     // Dọn dẹp
     DatabaseManager::instance().close();

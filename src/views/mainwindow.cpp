@@ -150,8 +150,9 @@ void MainWindow::setupConnections() {
     connect(ui->btnEditDept,   &QPushButton::clicked, this, &MainWindow::onEditDepartment);
     connect(ui->btnDeleteDept, &QPushButton::clicked, this, &MainWindow::onDeleteDepartment);
 
-    // ── Tab change ───────────────────────────────────────────────────────────
+    // ── Tab change & Logout ───────────────────────────────────────────────────
     connect(ui->tabWidget, &QTabWidget::currentChanged, this, &MainWindow::onTabChanged);
+    connect(ui->btnLogout, &QPushButton::clicked, this, &MainWindow::onLogout);
 }
 
 // ─── Populate Tables ─────────────────────────────────────────────────────────
@@ -446,5 +447,12 @@ void MainWindow::onTabChanged(int index) {
         case 0: refreshStudentTable(); break;
         case 1: refreshClassTable();   break;
         case 2: refreshDepartmentTable(); break;
+    }
+}
+
+void MainWindow::onLogout() {
+    if (QMessageBox::question(this, "Đăng xuất", "Bạn có chắc muốn đăng xuất khỏi hệ thống?",
+                              QMessageBox::Yes | QMessageBox::No, QMessageBox::No) == QMessageBox::Yes) {
+        qApp->exit(1000);
     }
 }

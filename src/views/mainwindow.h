@@ -51,6 +51,7 @@ private slots:
     // ── Chung ────────────────────────────────────────────────────────────────
     void updateStatusBar();
     void onTabChanged(int index);
+    void onLogout();
 
 private:
     Ui::MainWindow*        ui;
